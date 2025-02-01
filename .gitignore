@@ -169,3 +169,19 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# Untracked Folders
+.settings/*
+Data/ArgumentsFiles/Local/*
+Results/*
+
+# Untracked Files
+*.pyc
+*.flake8
+.vscode/settings.json
+interactive_console_output.xml
+
+# exception to the rule
+!Results/.gitkeep
+!Results/results_readme.md
+!Data/ArgumentsFiles/Local/.gitkeep

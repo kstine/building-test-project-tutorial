@@ -1,3 +1,18 @@
-extend-python-path=[".", "Resources", "CustomLibraries"]
+extend-python-path = [".", "Resources", "CustomLibraries"]
+default_profiles = "common"
 
-[profile.default]
+[profiles.common]
+output-dir = "Results"
+xunit = "junit.xml"
+
+[profiles.local]
+inherits = "common"
+args = ["-A", "Data/ArgumentsFiles/Local/Arguments.robot"]
+
+[profiles.run-all]
+inherits = "common"
+paths = ["Tests"]
+
+[profiles.dryrun-all]
+inherits = "run-all"
+dry-run = true
