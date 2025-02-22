@@ -4,10 +4,12 @@ default_profiles = "common"
 [profiles.common]
 output-dir = "Results"
 xunit = "junit.xml"
+log-level = "TRACE"
 
 [profiles.local]
 inherits = "common"
 args = ["-A", "Data/ArgumentsFiles/Local/Arguments.robot"]
+paths = ["Tests"]
 
 [profiles.run-all]
 inherits = "common"
@@ -16,3 +18,8 @@ paths = ["Tests"]
 [profiles.dryrun-all]
 inherits = "run-all"
 dry-run = true
+
+[profiles.example]
+inherits = "common"
+suites = ["Example"]
+paths = ["Tests"]

@@ -14,12 +14,14 @@ package-mode = false
 robotframework = "^7.2.0"
 robotframework-requests = "^0.9.7"
 robotframework-seleniumlibrary = "^6.7.0"
+robotframework-jsonlibrary = "^0.5"
 
 [tool.poetry.group.dev.dependencies]
 robotframework-tidy = "^4.16.0"
 robotframework-robocop = "^5.8.1"
 robotcode-runner = "^0.108.0"
 
+[tool.poetry.dependencies]
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
