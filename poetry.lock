@@ -6,7 +6,7 @@ version = "25.1.0"
 description = "Classes Without Boilerplate"
 optional = false
 python-versions = ">=3.8"
-groups = ["main", "test"]
+groups = ["test"]
 files = [
     {file = "attrs-25.1.0-py3-none-any.whl", hash = "sha256:c75a69e28a550a7e93789579c22aa26b0f5b83b75dc4e08fe092980051e1090a"},
     {file = "attrs-25.1.0.tar.gz", hash = "sha256:1c97078a80c814273a76b2a298a932eb681c87415c11dee0a6921de7f1b02c3e"},
@@ -22,14 +22,14 @@ tests-mypy = ["mypy (>=1.11.1)", "pytest-mypy-plugins"]
 
 [[package]]
 name = "certifi"
-version = "2024.12.14"
+version = "2025.1.31"
 description = "Python package for providing Mozilla's CA Bundle."
 optional = false
 python-versions = ">=3.6"
 groups = ["test"]
 files = [
-    {file = "certifi-2024.12.14-py3-none-any.whl", hash = "sha256:1275f7a45be9464efc1173084eaa30f866fe2e47d389406136d332ed4967ec56"},
-    {file = "certifi-2024.12.14.tar.gz", hash = "sha256:b650d30f370c2b724812bee08008be0c4163b163ddaec3f2546c1caf65f191db"},
+    {file = "certifi-2025.1.31-py3-none-any.whl", hash = "sha256:ca78db4565a652026a4db2bcdf68f2fb589ea80d0be70e03929ed730746b84fe"},
+    {file = "certifi-2025.1.31.tar.gz", hash = "sha256:3d5da6925056f6f18f119200434a4780a94263f10d1c21d032a6f6b2baa20651"},
 ]
 
 [[package]]
@@ -294,7 +294,7 @@ version = "1.7.0"
 description = "A final implementation of JSONPath for Python that aims to be standard compliant, including arithmetic and binary comparison operators and providing clear AST for metaprogramming."
 optional = false
 python-versions = "*"
-groups = ["main"]
+groups = ["test"]
 files = [
     {file = "jsonpath-ng-1.7.0.tar.gz", hash = "sha256:f6f5f7fd4e5ff79c785f1573b394043b39849fb2bb47bcead935d12b00beab3c"},
     {file = "jsonpath_ng-1.7.0-py2-none-any.whl", hash = "sha256:898c93fc173f0c336784a3fa63d7434297544b7198124a68f9a3ef9597b0ae6e"},
@@ -310,7 +310,7 @@ version = "4.23.0"
 description = "An implementation of JSON Schema validation for Python"
 optional = false
 python-versions = ">=3.8"
-groups = ["main"]
+groups = ["test"]
 files = [
     {file = "jsonschema-4.23.0-py3-none-any.whl", hash = "sha256:fbadb6f8b144a8f8cf9f0b89ba94501d143e50411a1278633f56a7acf7fd5566"},
     {file = "jsonschema-4.23.0.tar.gz", hash = "sha256:d71497fef26351a33265337fa77ffeb82423f3ea21283cd9467bb03999266bc4"},
@@ -332,7 +332,7 @@ version = "2024.10.1"
 description = "The JSON Schema meta-schemas and vocabularies, exposed as a Registry"
 optional = false
 python-versions = ">=3.9"
-groups = ["main"]
+groups = ["test"]
 files = [
     {file = "jsonschema_specifications-2024.10.1-py3-none-any.whl", hash = "sha256:a09a0680616357d9a0ecf05c12ad234479f549239d0f5b55f3deea67475da9bf"},
     {file = "jsonschema_specifications-2024.10.1.tar.gz", hash = "sha256:0f38b83639958ce1152d02a7f062902c41c8fd20d558b0c34344292d417ae272"},
@@ -515,7 +515,7 @@ version = "3.11"
 description = "Python Lex & Yacc"
 optional = false
 python-versions = "*"
-groups = ["main"]
+groups = ["test"]
 files = [
     {file = "ply-3.11-py2.py3-none-any.whl", hash = "sha256:096f9b8350b65ebd2fd1346b12452efe5b9607f7482813ffca50c22722a807ce"},
     {file = "ply-3.11.tar.gz", hash = "sha256:00c7c1aaa88358b9c765b6d3000c6eec0ba42abca5351b095321aef446081da3"},
@@ -595,7 +595,7 @@ version = "0.36.2"
 description = "JSON Referencing + Python"
 optional = false
 python-versions = ">=3.9"
-groups = ["main"]
+groups = ["test"]
 files = [
     {file = "referencing-0.36.2-py3-none-any.whl", hash = "sha256:e8699adbbf8b5c7de96d8ffa0eb5c158b3beafce084968e2ea8bb08c6794dcd0"},
     {file = "referencing-0.36.2.tar.gz", hash = "sha256:df2e89862cd09deabbdba16944cc3f10feb6b3e6f18e902f7cc25609a34775aa"},
@@ -670,45 +670,45 @@ docs = ["markdown_include", "mkdocs", "mkdocs-glightbox", "mkdocs-material-exten
 
 [[package]]
 name = "robotcode"
-version = "0.108.0"
+version = "0.108.1"
 description = "Command line interface for RobotCode"
 optional = false
 python-versions = ">=3.8"
 groups = ["dev"]
 files = [
-    {file = "robotcode-0.108.0-py3-none-any.whl", hash = "sha256:43f22f85583a052b3efc3140fbd9d90a3f231d44ffe19ae784ab373bbd152f16"},
-    {file = "robotcode-0.108.0.tar.gz", hash = "sha256:dd64eef16538f6490be67ebb0e01fa246b603d52563124f837135ee063ec9734"},
+    {file = "robotcode-0.108.1-py3-none-any.whl", hash = "sha256:91e7dbad1d9d2fdd5d00ac91fe97a68c9edcec904442eb3a6c165aa3b2299679"},
+    {file = "robotcode-0.108.1.tar.gz", hash = "sha256:b47c87c8b2391a07a35b80486016eaf1801151cc27d5b54dd12d513209e4f762"},
 ]
 
 [package.dependencies]
-robotcode-core = "0.108.0"
-robotcode-plugin = "0.108.0"
-robotcode-robot = "0.108.0"
+robotcode-core = "0.108.1"
+robotcode-plugin = "0.108.1"
+robotcode-robot = "0.108.1"
 
 [package.extras]
-all = ["docutils", "pyyaml (>=5.4)", "rich", "robotcode-analyze (==0.108.0)", "robotcode-debugger (==0.108.0)", "robotcode-language-server (==0.108.0)", "robotcode-repl (==0.108.0)", "robotcode-repl-server (==0.108.0)", "robotcode-runner (==0.108.0)", "robotframework-robocop (>=2.0.0)", "robotframework-tidy (>=2.0.0)"]
-analyze = ["robotcode-analyze (==0.108.0)"]
+all = ["docutils", "pyyaml (>=5.4)", "rich", "robotcode-analyze (==0.108.1)", "robotcode-debugger (==0.108.1)", "robotcode-language-server (==0.108.1)", "robotcode-repl (==0.108.1)", "robotcode-repl-server (==0.108.1)", "robotcode-runner (==0.108.1)", "robotframework-robocop (>=2.0.0)", "robotframework-tidy (>=2.0.0)"]
+analyze = ["robotcode-analyze (==0.108.1)"]
 colored = ["rich"]
-debugger = ["robotcode-debugger (==0.108.0)"]
-languageserver = ["robotcode-language-server (==0.108.0)"]
+debugger = ["robotcode-debugger (==0.108.1)"]
+languageserver = ["robotcode-language-server (==0.108.1)"]
 lint = ["robotframework-robocop (>=2.0.0)"]
-repl = ["robotcode-repl (==0.108.0)"]
-replserver = ["robotcode-repl-server (==0.108.0)"]
+repl = ["robotcode-repl (==0.108.1)"]
+replserver = ["robotcode-repl-server (==0.108.1)"]
 rest = ["docutils"]
-runner = ["robotcode-runner (==0.108.0)"]
+runner = ["robotcode-runner (==0.108.1)"]
 tidy = ["robotframework-tidy (>=2.0.0)"]
 yaml = ["pyyaml (>=5.4)"]
 
 [[package]]
 name = "robotcode-core"
-version = "0.108.0"
+version = "0.108.1"
 description = "Some core classes for RobotCode"
 optional = false
 python-versions = ">=3.8"
 groups = ["dev"]
 files = [
-    {file = "robotcode_core-0.108.0-py3-none-any.whl", hash = "sha256:fd17eaba604c49b51e6050e406aa0161463e4edc2a53dfc4b7e033c50d289a7d"},
-    {file = "robotcode_core-0.108.0.tar.gz", hash = "sha256:4e592dfa8ec5bc135adad310e3df1f9d04da94035e631b58582085b832195e4d"},
+    {file = "robotcode_core-0.108.1-py3-none-any.whl", hash = "sha256:175a50914462e0a531fb8223e6312354e931e8045c475afaecc55cdbe34fcf20"},
+    {file = "robotcode_core-0.108.1.tar.gz", hash = "sha256:59f55a2b9e0878be9b39199dca02ac72c0b4cb040f8e81205ded8724daa26447"},
 ]
 
 [package.dependencies]
@@ -716,14 +716,14 @@ typing-extensions = ">=4.4.0"
 
 [[package]]
 name = "robotcode-modifiers"
-version = "0.108.0"
+version = "0.108.1"
 description = "Some Robot Framework Modifiers for RobotCode"
 optional = false
 python-versions = ">=3.8"
 groups = ["dev"]
 files = [
-    {file = "robotcode_modifiers-0.108.0-py3-none-any.whl", hash = "sha256:16955da8bb19e300cd3a18f02babbce1d8d983dccae6d0c08fd90c149d334348"},
-    {file = "robotcode_modifiers-0.108.0.tar.gz", hash = "sha256:b93008fbda3af68bfab85b3a262426bf98f5a6701fb5e4ffdde28bd4d277ccff"},
+    {file = "robotcode_modifiers-0.108.1-py3-none-any.whl", hash = "sha256:7506cec6634ff27cc3e32b61e28d30d38ed79d0ae83a8f4047c48ce544566b4b"},
+    {file = "robotcode_modifiers-0.108.1.tar.gz", hash = "sha256:e7f1cb6e5857128fc8f9feada41a4ce524fba8d4ac3531d97544a63545b03445"},
 ]
 
 [package.dependencies]
@@ -731,14 +731,14 @@ robotframework = ">=4.1.0"
 
 [[package]]
 name = "robotcode-plugin"
-version = "0.108.0"
+version = "0.108.1"
 description = "Some classes for RobotCode plugin management"
 optional = false
 python-versions = ">=3.8"
 groups = ["dev"]
 files = [
-    {file = "robotcode_plugin-0.108.0-py3-none-any.whl", hash = "sha256:11e371baeb35acb3dd057e01d3c1429b58d4fd6a0b95f5550311ea5e16871665"},
-    {file = "robotcode_plugin-0.108.0.tar.gz", hash = "sha256:370b07dbd7b097e537f910f6ae31956792dc092f56023be86c1dd59501800bf9"},
+    {file = "robotcode_plugin-0.108.1-py3-none-any.whl", hash = "sha256:1154a46ff24008004ec87c8915d1729ba7e669ebf906adbd9e133f56333c1e28"},
+    {file = "robotcode_plugin-0.108.1.tar.gz", hash = "sha256:f5ebab08738bd9cf8b9e9fd227a53c66bcaeb521487ed6154b52a8ade175423e"},
 ]
 
 [package.dependencies]
@@ -749,50 +749,50 @@ tomli-w = ">=1.0.0"
 
 [[package]]
 name = "robotcode-robot"
-version = "0.108.0"
+version = "0.108.1"
 description = "Support classes for RobotCode for handling Robot Framework projects."
 optional = false
 python-versions = ">=3.8"
 groups = ["dev"]
 files = [
-    {file = "robotcode_robot-0.108.0-py3-none-any.whl", hash = "sha256:069db6f077a426bcd50df6c52e95f8987ffab0a7e581351d511dfbcd271809c2"},
-    {file = "robotcode_robot-0.108.0.tar.gz", hash = "sha256:e9983fd6f1113ae5cd70e4603869cf44f3fdf88c90a32d045ef5fefc62ac3c4d"},
+    {file = "robotcode_robot-0.108.1-py3-none-any.whl", hash = "sha256:6a1c3d29bb28f43eac5d9f3d61eba13c0d87bde1e73fdedb6e9332fe09e9e1e8"},
+    {file = "robotcode_robot-0.108.1.tar.gz", hash = "sha256:2674f17fd697afedeaab3477cd55f982948dcf40bfd483adf8964526f361db6b"},
 ]
 
 [package.dependencies]
 platformdirs = ">=3.2.0,<4.4.0"
-robotcode-core = "0.108.0"
+robotcode-core = "0.108.1"
 robotframework = ">=4.1.0"
 
 [[package]]
 name = "robotcode-runner"
-version = "0.108.0"
+version = "0.108.1"
 description = "RobotCode runner for Robot Framework"
 optional = false
 python-versions = ">=3.8"
 groups = ["dev"]
 files = [
-    {file = "robotcode_runner-0.108.0-py3-none-any.whl", hash = "sha256:4939394ca5f9e6ca47ff202117ab04a94c762469a71ef234ca5e903e129eaa89"},
-    {file = "robotcode_runner-0.108.0.tar.gz", hash = "sha256:6384d822168b7637fd691e5a99c188e6efef9c964f5462e79bd1ff345ebe175a"},
+    {file = "robotcode_runner-0.108.1-py3-none-any.whl", hash = "sha256:137d86b90e941a61cf6f3649ab26652d771d7585fce837832b81c08d8faa1d74"},
+    {file = "robotcode_runner-0.108.1.tar.gz", hash = "sha256:a5b9bdf4c50d3552e39d9a78a4b178d3c8b27993cfb503529a55c84f528be6df"},
 ]
 
 [package.dependencies]
-robotcode = "0.108.0"
-robotcode-modifiers = "0.108.0"
-robotcode-plugin = "0.108.0"
-robotcode-robot = "0.108.0"
+robotcode = "0.108.1"
+robotcode-modifiers = "0.108.1"
+robotcode-plugin = "0.108.1"
+robotcode-robot = "0.108.1"
 robotframework = ">=4.1.0"
 
 [[package]]
 name = "robotframework"
-version = "7.2"
+version = "7.2.2"
 description = "Generic automation framework for acceptance testing and robotic process automation (RPA)"
 optional = false
 python-versions = ">=3.8"
-groups = ["main", "dev", "test"]
+groups = ["dev", "test"]
 files = [
-    {file = "robotframework-7.2-py3-none-any.whl", hash = "sha256:0b1caeb40be3d8c5fd4eb9303b221e384aa98f87f665bd66e6de8d7170d8a3c7"},
-    {file = "robotframework-7.2.tar.gz", hash = "sha256:9fc77d40283c26690bbc1563fb7fcadac789afe8695d332ced3fa4696df39eb9"},
+    {file = "robotframework-7.2.2-py3-none-any.whl", hash = "sha256:1cb4ec69d52aae515bf6037cee66a2a2d8dc3256368081c0f4b3d4578d40904e"},
+    {file = "robotframework-7.2.2.tar.gz", hash = "sha256:9c420f6d35e9c8cd4b75b77cc78e36407604534ec4ab0cbddf699d7c0b2fc435"},
 ]
 
 [[package]]
@@ -801,7 +801,7 @@ version = "0.5"
 description = "robotframework-jsonlibrary is a Robot Framework test library for manipulating JSON Object. You can manipulate your JSON object using JSONPath"
 optional = false
 python-versions = "*"
-groups = ["main"]
+groups = ["test"]
 files = [
     {file = "robotframework-jsonlibrary-0.5.tar.gz", hash = "sha256:000ac2e53c7f96e3b749c6b5595fcec87d5291b4afc03fb252470356a7d5da1f"},
 ]
@@ -917,7 +917,7 @@ version = "0.23.1"
 description = "Python bindings to Rust's persistent data structures (rpds)"
 optional = false
 python-versions = ">=3.9"
-groups = ["main"]
+groups = ["test"]
 files = [
     {file = "rpds_py-0.23.1-cp310-cp310-macosx_10_12_x86_64.whl", hash = "sha256:2a54027554ce9b129fc3d633c92fa33b30de9f08bc61b32c053dc9b537266fed"},
     {file = "rpds_py-0.23.1-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:b5ef909a37e9738d146519657a1aab4584018746a18f71c692f2f22168ece40c"},
@@ -1026,14 +1026,14 @@ files = [
 
 [[package]]
 name = "selenium"
-version = "4.28.1"
+version = "4.29.0"
 description = "Official Python bindings for Selenium WebDriver"
 optional = false
 python-versions = ">=3.9"
 groups = ["test"]
 files = [
-    {file = "selenium-4.28.1-py3-none-any.whl", hash = "sha256:4238847e45e24e4472cfcf3554427512c7aab9443396435b1623ef406fff1cc1"},
-    {file = "selenium-4.28.1.tar.gz", hash = "sha256:0072d08670d7ec32db901bd0107695a330cecac9f196e3afb3fa8163026e022a"},
+    {file = "selenium-4.29.0-py3-none-any.whl", hash = "sha256:ce5d26f1ddc1111641113653af33694c13947dd36c2df09cdd33f554351d372e"},
+    {file = "selenium-4.29.0.tar.gz", hash = "sha256:3a62f7ec33e669364a6c0562a701deb69745b569c50d55f1a912bf8eb33358ba"},
 ]
 
 [package.dependencies]
@@ -1136,14 +1136,14 @@ files = [
 
 [[package]]
 name = "trio"
-version = "0.28.0"
+version = "0.29.0"
 description = "A friendly Python library for async concurrency and I/O"
 optional = false
 python-versions = ">=3.9"
 groups = ["test"]
 files = [
-    {file = "trio-0.28.0-py3-none-any.whl", hash = "sha256:56d58977acc1635735a96581ec70513cc781b8b6decd299c487d3be2a721cd94"},
-    {file = "trio-0.28.0.tar.gz", hash = "sha256:4e547896fe9e8a5658e54e4c7c5fa1db748cbbbaa7c965e7d40505b928c73c05"},
+    {file = "trio-0.29.0-py3-none-any.whl", hash = "sha256:d8c463f1a9cc776ff63e331aba44c125f423a5a13c684307e828d930e625ba66"},
+    {file = "trio-0.29.0.tar.gz", hash = "sha256:ea0d3967159fc130acb6939a0be0e558e364fee26b5deeecc893a6b08c361bdf"},
 ]
 
 [package.dependencies]
@@ -1156,17 +1156,18 @@ sortedcontainers = "*"
 
 [[package]]
 name = "trio-websocket"
-version = "0.11.1"
+version = "0.12.2"
 description = "WebSocket library for Trio"
 optional = false
-python-versions = ">=3.7"
+python-versions = ">=3.8"
 groups = ["test"]
 files = [
-    {file = "trio-websocket-0.11.1.tar.gz", hash = "sha256:18c11793647703c158b1f6e62de638acada927344d534e3c7628eedcb746839f"},
-    {file = "trio_websocket-0.11.1-py3-none-any.whl", hash = "sha256:520d046b0d030cf970b8b2b2e00c4c2245b3807853ecd44214acd33d74581638"},
+    {file = "trio_websocket-0.12.2-py3-none-any.whl", hash = "sha256:df605665f1db533f4a386c94525870851096a223adcb97f72a07e8b4beba45b6"},
+    {file = "trio_websocket-0.12.2.tar.gz", hash = "sha256:22c72c436f3d1e264d0910a3951934798dcc5b00ae56fc4ee079d46c7cf20fae"},
 ]
 
 [package.dependencies]
+outcome = ">=1.2.0"
 trio = ">=0.11"
 wsproto = ">=0.14"
 
@@ -1176,12 +1177,11 @@ version = "4.12.2"
 description = "Backported and Experimental Type Hints for Python 3.8+"
 optional = false
 python-versions = ">=3.8"
-groups = ["main", "dev", "test"]
+groups = ["dev", "test"]
 files = [
     {file = "typing_extensions-4.12.2-py3-none-any.whl", hash = "sha256:04e5ca0351e0f3f85c6853954072df659d0d13fac324d0072316b67d7794700d"},
     {file = "typing_extensions-4.12.2.tar.gz", hash = "sha256:1a7ead55c7e559dd4dee8856e3a88b41225abfe1ce8df57b7c13915fe121ffb8"},
 ]
-markers = {main = "python_version < \"3.13\""}
 
 [[package]]
 name = "urllib3"
@@ -1239,4 +1239,4 @@ h11 = ">=0.9.0,<1"
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.12,<3.14"
-content-hash = "6975aa76d6bea32e952259faa5518ae7326e45cd03d5f34a2da3440115cb56a5"
+content-hash = "51ffca70bfa27baa98ffc5a68265d009b72af0075a30f3dfd7007eb58d000e81"
