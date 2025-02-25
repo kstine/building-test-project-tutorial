@@ -3,6 +3,7 @@ Library     Collections
 Library     String
 Library     RequestsLibrary
 Library     SeleniumLibrary
+Test Tags   ui-api    url-navigation    admin
 
 
 *** Test Cases ***

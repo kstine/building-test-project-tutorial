@@ -3,6 +3,7 @@ Library     Collections
 Library     String
 Library     RequestsLibrary
 Library     JSONLibrary
+Test Tags   rest-api    contact-message    admin
 
 
 *** Variables ***
@@ -13,7 +14,7 @@ Library     JSONLibrary
 
 
 *** Test Cases ***
-Verify Contact Endpoint
+Verify Message Endpoint Returns OK
     VAR    &{headers}
     ...    Accept=application/json
     ...    Content-Type=application/json
@@ -30,7 +31,7 @@ Verify Contact Endpoint
     ...    json=${body}
     ...    cookies=${cookie}
 
-Check Contact Message As An Admin
+Verify Admin Can Read Message
     VAR    &{body}    username=admin    password=password
     ${response}    POST    url=https://automationintesting.online/auth/login    json=${body}
     ${beer}    Get From Dictionary    ${response.headers}    Set-Cookie
