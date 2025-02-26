@@ -36,42 +36,102 @@ ${READ_EXT}                 read
 
 *** Test Cases ***
 Verify Message Endpoint Returns OK
-    POST    url=${BOOKING_URL_DATA}[${BOOKING_ENVIRONMENT}][URL]/${MESSAGE_EXT}/
-    ...    headers=${COMMON_HEADERS}
-    ...    json=${MESSAGE_BODY}
-    ...    cookies=${BANNER_COOKIE}
+    [Documentation]    Verify the message endpoint returns a 200 OK
+    Post Request To Message Endpoint    json=${MESSAGE_BODY}
+    Request Should Be Successful
 
 Verify Admin Can Read Message
-    ${response}    POST
-    ...    url=${BOOKING_URL_DATA}[${BOOKING_ENVIRONMENT}][URL]/${AUTH_EXT}
-    ...    json=${ADMIN_CREDENTIALS}
-    ${beer}    Get From Dictionary    ${response.headers}    Set-Cookie
-    ${ale}    Split String    ${beer}    separator=;
-    ${token}    Split String    ${ale}[0]    separator==
-    ${response}    GET    url=${BOOKING_URL_DATA}[${BOOKING_ENVIRONMENT}][URL]/${MESSAGE_EXT}/
-    ...    cookies=${{ {"token": $token[1]} }}
-    ${messages}    Set Variable    ${{$response.json()['messages']}}
-    ${false_reads}    Evaluate    [message for message in $messages if message['read'] == False]
+    ${response}    Post Request To Authentication Endpoint    &{ADMIN_CREDENTIALS}
+    ${token_cookie}    Get Token Cookie From Response    ${response}
+    ${response}    Get Request From Message Endpoint    ${token_cookie}
+    ${false_reads}    Get False Reads From Message Response    ${response}
     ${before_read}    Get Length    ${false_reads}
+    ${id}    Get Id Of Second False Read    ${false_reads}
+    ${response}    Get Request From Message Count Endpoint    ${token_cookie}
+    VAR    ${before_count}    ${response.json()}
+    Put Request To Read Message Endpoint    ${id}    ${token_cookie}
+    Get Request From One Message Endpoint    ${id}    ${token_cookie}
+    ${response}    Get Request From Message Endpoint    ${token_cookie}
+    ${false_reads}    Get False Reads From Message Response    ${response}
+    ${after_read}    Get Length    ${false_reads}
+    ${response}    Get Request From Message Count Endpoint    ${token_cookie}
+    VAR    ${after_count}    ${response.json()}
+    Verify Count And Read Are Correct    ${before_count}    ${after_count}    ${before_read}    ${after_read}
+
+
+*** Keywords ***
+Post Request To Message Endpoint
+    [Arguments]    ${json}
+    ${response}    POST    ${BOOKING_URL_DATA}[${BOOKING_ENVIRONMENT}][URL]/${MESSAGE_EXT}/
+    ...    headers=${COMMON_HEADERS}
+    ...    json=${json}
+    ...    cookies=${BANNER_COOKIE}
+    RETURN    ${response}
+
+Get Token Cookie From Response
+    [Arguments]    ${response}
+    ${cookie_string}    Get From Dictionary    ${response.headers}    Set-Cookie
+    TRY
+        Should Contain    ${cookie_string}    token
+        ${token_path_list}    Split String    ${cookie_string}    separator=;
+        ${token_string}    Get From List    ${token_path_list}    0
+        ${token_value_list}    Split String    ${token_string}    separator==
+        ${value}    Get From List    ${token_value_list}    1
+        VAR    &{cookie_dict}    token=${value}
+    EXCEPT    AS    ${error}
+        Log    ${error}    ERROR
+        VAR    &{cookie_dict}    token=${NONE}
+    END
+    RETURN    ${cookie_dict}
+
+Post Request To Authentication Endpoint
+    [Arguments]    ${username}    ${password}
+    VAR    &{json}    username=${username}    password=${password}
+    ${response}    POST    ${BOOKING_URL_DATA}[${BOOKING_ENVIRONMENT}][URL]/${AUTH_EXT}
+    ...    json=${json}
+    RETURN    ${response}
+
+Get Request From Message Endpoint
+    [Arguments]    ${token_cookie}
+    ${response}    GET    url=${BOOKING_URL_DATA}[${BOOKING_ENVIRONMENT}][URL]/${MESSAGE_EXT}/
+    ...    cookies=${token_cookie}
+    RETURN    ${response}
+
+Get Request From Message Count Endpoint
+    [Arguments]    ${token_cookie}
     ${response}    GET    url=${BOOKING_URL_DATA}[${BOOKING_ENVIRONMENT}][URL]/${MESSAGE_COUNT_EXT}
-    ...    cookies=${{ {"token": $token[1]} }}
-    ${before_count}    Set Variable    ${response.json()}
-    ${id}    Evaluate    $false_reads[1]['id']
+    ...    cookies=${token_cookie}
+    RETURN    ${response}
+
+Put Request To Read Message Endpoint
+    [Arguments]    ${id}    ${token_cookie}
     ${response}    PUT    url=${BOOKING_URL_DATA}[${BOOKING_ENVIRONMENT}][URL]/${MESSAGE_EXT}/${id}/${READ_EXT}
-    ...    cookies=${{ {"token": $token[1]} }}
+    ...    cookies=${token_cookie}
     ...    json=${INCLUDE_CREDENTIALS}
     ...    headers=${COMMON_HEADERS}
-    Log    ${response}    CONSOLE
+    RETURN    ${response}
+
+Get Request From One Message Endpoint
+    [Arguments]    ${id}    ${token_cookie}
     ${response}    GET    url=${BOOKING_URL_DATA}[${BOOKING_ENVIRONMENT}][URL]/${MESSAGE_EXT}/${id}
-    ...    cookies=${{ {"token": $token[1]} }}
-    Log    ${response.json()}
-    ${response}    GET    url=${BOOKING_URL_DATA}[${BOOKING_ENVIRONMENT}][URL]/${MESSAGE_EXT}/
-    ...    cookies=${{ {"token": $token[1]} }}
-    ${messages}    Set Variable    ${{ $response.json()['messages'] }}
+    ...    cookies=${token_cookie}
+    RETURN    ${response}
+
+Get False Reads From Message Response
+    [Arguments]    ${response}
+    ${messages}    Get From Dictionary    ${response.json()}    messages    ${NONE}
     ${false_reads}    Evaluate    [message for message in $messages if message['read'] == False]
-    ${after_read}    Get Length    ${false_reads}
-    ${response}    GET    url=${BOOKING_URL_DATA}[${BOOKING_ENVIRONMENT}][URL]/${MESSAGE_COUNT_EXT}
-    ...    cookies=${{ {"token": $token[1]} }}
-    ${after_count}    Set Variable    ${response.json()}
-    Should Be Equal    ${{ $before_count['count']-1 }}    ${after_count}[count]
+    RETURN    ${false_reads}
+
+Get Id Of Second False Read
+    [Arguments]    ${false_reads}
+    ${false_read}    Get From List    ${false_reads}    1
+    ${id}    Get From Dictionary    ${false_read}    id    ${NONE}
+    RETURN    ${id}
+
+Verify Count And Read Are Correct
+    [Arguments]    ${before_count}    ${after_count}    ${before_read}    ${after_read}
+    ${before_count_value}    Get From Dictionary    ${before_count}    count    ${NONE}
+    ${after_count_value}    Get From Dictionary    ${after_count}    count    ${NONE}
+    Should Be Equal    ${before_count_value-1}    ${after_count_value}
     Should Be Equal    ${before_read-1}    ${after_read}
