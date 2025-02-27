@@ -49,7 +49,7 @@ Enter Subject Into Contact Form
 
 Enter Message Into Contact Form
     [Arguments]    ${message}
-    VAR    ${message_textarea}    css=textarea[id="message"]
+    VAR    ${message_textarea}    css=textarea[id="description"]
     Wait Until Element Is Visible    ${message_textarea}
     Input Text    ${message_textarea}    ${message}
 

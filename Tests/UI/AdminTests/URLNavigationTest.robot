@@ -29,7 +29,7 @@ Room URL Navigation Test
     New Web Browser
     Add Token Cookie    ${token_cookie}
     Navigate To Rooms By URL
-    Wait Until Element Is Visible    ${ROOM_HEADER_ROW}
+    Wait Until Element Is Visible    ${ROOM_HEADER.ROW}
     Verify Room Header Row Columns
     [Teardown]    Close All Browsers
 

@@ -27,15 +27,15 @@ Verify Admin Can Read Message
     ${false_reads}    Get False Reads From Message Response    ${response}
     ${before_read}    Get Length    ${false_reads}
     ${id}    Get Id Of Second False Read    ${false_reads}
-    ${response}    Get Request From Message Count Endpoint    ${token_cookie}
-    VAR    ${before_count}    ${{$response.json()['messages']}}
+    ${response_count}    Get Request From Message Count Endpoint    ${token_cookie}
+    VAR    ${before_count}    ${response_count.json()}
     Put Request To Read Message Endpoint    ${id}    ${token_cookie}
     Get Request From One Message Endpoint    ${id}    ${token_cookie}
     ${response}    Get Request From Message Endpoint    ${token_cookie}
     ${false_reads}    Get False Reads From Message Response    ${response}
     ${after_read}    Get Length    ${false_reads}
-    ${response}    Get Request From Message Count Endpoint    ${token_cookie}
-    VAR    ${after_count}    ${{$response.json()['messages']}}
+    ${response_count}    Get Request From Message Count Endpoint    ${token_cookie}
+    VAR  ${after_count}    ${response_count.json()}
     Verify Count And Read Are Correct    ${before_count}    ${after_count}    ${before_read}    ${after_read}
 
 

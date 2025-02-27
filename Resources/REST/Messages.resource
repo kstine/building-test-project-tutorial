@@ -24,7 +24,7 @@ Get Request From Message Endpoint
 
 Get Request From Message Count Endpoint
     [Arguments]    ${token_cookie}
-    VAR    ${url}    ${BOOKING_URL_DATA}[${BOOKING_ENVIRONMENT}][URL]/${RB_REST_EXT.MESSAGE}/
+    VAR    ${url}    ${BOOKING_URL_DATA}[${BOOKING_ENVIRONMENT}][URL]/${RB_REST_EXT.MESSAGE_COUNT}
     ${response}    GET    url=${url}    cookies=${token_cookie}    headers=${COMMON_HEADERS}
     RETURN    ${response}
 

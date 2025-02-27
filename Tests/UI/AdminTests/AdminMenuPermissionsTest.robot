@@ -22,6 +22,7 @@ Verify Admin Menu Permissions
     Click Notifications Navbar Link
     Click Front Page Navbar Link
     Go Back
-    Wait Until Location Is    ${BOOKING_URL_DATA}[${BOOKING_ENVIRONMENT}][URL]/${RB_ADMIN_EXT}/${RB_MESSAGES_EXT}
+    Wait Until Location Is
+    ...        ${BOOKING_URL_DATA}[${BOOKING_ENVIRONMENT}][URL]/${RB_URL_EXT.ADMIN}/${RB_URL_EXT.MESSAGES}
     Click Logout Navbar Link
     [Teardown]    Close All Browsers
