@@ -7,14 +7,14 @@ Resource    Resources/Common/Requests.resource
 *** Keywords ***
 Post Request To Authentication Endpoint
     [Arguments]    ${username}    ${password}
+    VAR    ${url}    ${BOOKING_URL_DATA}[${BOOKING_ENVIRONMENT}][URL]/${RB_REST_EXT.AUTH}
     VAR    &{json}    username=${username}    password=${password}
-    ${response}    POST    ${BOOKING_URL_DATA}[${BOOKING_ENVIRONMENT}][URL]/${AUTH_EXT}
-    ...    json=${json}
+    ${response}    POST    ${url}    json=${json}
     RETURN    ${response}
 
 Get Token Cookie From Response
     [Arguments]    ${response}
-    ${cookie_string}    Get From Dictionary    ${response.headers}    Set-Cookie
+    ${cookie_string}    Get From Dictionary    ${response.headers}    Set-Cookie    ${NONE}
     TRY
         Should Contain    ${cookie_string}    token
         ${token_path_list}    Split String    ${cookie_string}    separator=;

@@ -1,0 +1,12 @@
+{
+  "BOOKING_URL_DATA": {
+    "PROD": {
+      "DOMAIN": "automationintesting.online",
+      "URL": "https://automationintesting.online"
+    },
+    "TEST": {
+      "DOMAIN": "tomtebook-pro.local",
+      "URL": "http://tomtebook-pro.local:8080"
+    }
+  }
+}

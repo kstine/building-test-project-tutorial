@@ -5,12 +5,12 @@ Resource    Environment.resource
 
 
 *** Variables ***
-${BROWSER}                  Chrome
-${RB_ADMIN_EXT}             \#/admin
-${RB_REPORT_EXT}            report
-${RB_BRANDING_EXT}          branding
-${RB_MESSAGES_EXT}          messages
-${LET_ME_HACK_BUTTON}       Let me hack!
+${BROWSER}          Chrome
+&{RB_URL_EXT}
+...                 ADMIN=\#/admin
+...                 REPORT=report
+...                 BRANDING=branding
+...                 MESSAGES=messages
 
 
 *** Keywords ***
@@ -27,7 +27,7 @@ Verify Banner Cookie
     Should Contain    ${cookies}    ${BANNER_COOKIE}[name]=${BANNER_COOKIE}[value]
 
 Click Let Me Hack Button
-    Click Button    ${LET_ME_HACK_BUTTON}
+    Click Button    Let me hack!
 
 Add Token Cookie
     [Arguments]    ${token_cookie}
@@ -36,21 +36,26 @@ Add Token Cookie
     Reload Page
 
 Navigate To Admin Login Page
-    Go To    ${BOOKING_URL_DATA}[${BOOKING_ENVIRONMENT}][URL]/${RB_ADMIN_EXT}
-    Wait Until Location Is    ${BOOKING_URL_DATA}[${BOOKING_ENVIRONMENT}][URL]/${RB_ADMIN_EXT}
+    VAR    ${url}    ${BOOKING_URL_DATA}[${BOOKING_ENVIRONMENT}][URL]/${RB_URL_EXT.ADMIN}
+    Go To    ${url}
+    Wait Until Location Is    ${url}
 
 Navigate To Branding By URL
-    Go To    ${BOOKING_URL_DATA}[${BOOKING_ENVIRONMENT}][URL]/${RB_ADMIN_EXT}/${RB_BRANDING_EXT}
-    Wait Until Location Is    ${BOOKING_URL_DATA}[${BOOKING_ENVIRONMENT}][URL]/${RB_ADMIN_EXT}/${RB_BRANDING_EXT}
+    VAR    ${url}    ${BOOKING_URL_DATA}[${BOOKING_ENVIRONMENT}][URL]/${RB_URL_EXT.ADMIN}/${RB_URL_EXT.BRANDING}
+    Go To    ${url}
+    Wait Until Location Is    ${url}
 
 Navigate To Rooms By URL
-    Go To    ${BOOKING_URL_DATA}[${BOOKING_ENVIRONMENT}][URL]/${RB_ADMIN_EXT}/
-    Wait Until Location Is    ${BOOKING_URL_DATA}[${BOOKING_ENVIRONMENT}][URL]/${RB_ADMIN_EXT}/
+    VAR    ${url}    ${BOOKING_URL_DATA}[${BOOKING_ENVIRONMENT}][URL]/${RB_URL_EXT.ADMIN}/
+    Go To    ${url}
+    Wait Until Location Is    ${url}
 
 Navigate To Messages By URL
-    Go To    ${BOOKING_URL_DATA}[${BOOKING_ENVIRONMENT}][URL]/${RB_ADMIN_EXT}/${RB_MESSAGES_EXT}
-    Wait Until Location Is    ${BOOKING_URL_DATA}[${BOOKING_ENVIRONMENT}][URL]/${RB_ADMIN_EXT}/${RB_MESSAGES_EXT}
+    VAR    ${url}    ${BOOKING_URL_DATA}[${BOOKING_ENVIRONMENT}][URL]/${RB_URL_EXT.ADMIN}/${RB_URL_EXT.MESSAGES}
+    Go To    ${url}
+    Wait Until Location Is    ${url}
 
 Navigate To Reports By URL
-    Go To    ${BOOKING_URL_DATA}[${BOOKING_ENVIRONMENT}][URL]/${RB_ADMIN_EXT}/${RB_REPORT_EXT}
-    Wait Until Location Is    ${BOOKING_URL_DATA}[${BOOKING_ENVIRONMENT}][URL]/${RB_ADMIN_EXT}/${RB_REPORT_EXT}
+    VAR    ${url}    ${BOOKING_URL_DATA}[${BOOKING_ENVIRONMENT}][URL]/${RB_URL_EXT.ADMIN}/${RB_URL_EXT.REPORT}
+    Go To    ${url}
+    Wait Until Location Is    ${url}

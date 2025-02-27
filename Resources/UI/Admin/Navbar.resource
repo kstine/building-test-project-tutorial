@@ -3,46 +3,46 @@ Resource    Resources/Common/Selenium.resource
 
 
 *** Variables ***
-${BOOKING_MGT_TITLE}                    B&B Booking Management
-${ADMIN_NAVBAR_ROOMS_LINK}              xpath://li/a[contains(@href, "admin")][text()="Rooms"]
-${ADMIN_NAVBAR_REPORT_LINK}             id=reportLink
-${ADMIN_NAVBAR_BRANDING_LINK}           id=brandingLink
-${ADMIN_NAVBAR_NOTIFICATIONS_LINK}      css=a.nav-link[href="#/admin/messages"]
-${ADMIN_NAVBAR_FRONT_PAGE_LINK}         id=frontPageLink
-${ADMIN_NAVBAR_LOGOUT_LINK}             css=a.nav-link[href="#/admin"]
+${BOOKING_MGT_TITLE}    B&B Booking Management
 
 
 *** Keywords ***
 Wait For Booking Management To Load
-    Wait Until Location Is    ${BOOKING_URL_DATA}[${BOOKING_ENVIRONMENT}][URL]/${RB_ADMIN_EXT}
+    Wait Until Location Is    ${BOOKING_URL_DATA}[${BOOKING_ENVIRONMENT}][URL]/${RB_URL_EXT.ADMIN}
     Wait Until Page Contains    ${BOOKING_MGT_TITLE}
 
 Click Rooms Navbar Link
-    Wait Until Element Is Visible    ${ADMIN_NAVBAR_ROOMS_LINK}
-    Click Element    ${ADMIN_NAVBAR_ROOMS_LINK}
-    Wait Until Location Is    ${BOOKING_URL_DATA}[${BOOKING_ENVIRONMENT}][URL]/${RB_ADMIN_EXT}/
+    VAR    ${rooms_link}    xpath://li/a[contains(@href, "admin")][text()="Rooms"]
+    Wait Until Element Is Visible    ${rooms_link}
+    Click Element    ${rooms_link}
+    Wait Until Location Is    ${BOOKING_URL_DATA}[${BOOKING_ENVIRONMENT}][URL]/${RB_URL_EXT.ADMIN}/
 
 Click Report Navbar Link
-    Wait Until Element Is Visible    ${ADMIN_NAVBAR_REPORT_LINK}
-    Click Element    ${ADMIN_NAVBAR_REPORT_LINK}
-    Wait Until Location Is    ${BOOKING_URL_DATA}[${BOOKING_ENVIRONMENT}][URL]/${RB_ADMIN_EXT}/${RB_REPORT_EXT}
+    VAR    ${report_link}    id=reportLink
+    Wait Until Element Is Visible    ${report_link}
+    Click Element    ${report_link}
+    Wait Until Location Is    ${BOOKING_URL_DATA}[${BOOKING_ENVIRONMENT}][URL]/${RB_URL_EXT.ADMIN}/${RB_URL_EXT.REPORT}
 
 Click Branding Navbar Link
-    Wait Until Element Is Visible    ${ADMIN_NAVBAR_BRANDING_LINK}
-    Click Element    ${ADMIN_NAVBAR_BRANDING_LINK}
-    Wait Until Location Is    ${BOOKING_URL_DATA}[${BOOKING_ENVIRONMENT}][URL]/${RB_ADMIN_EXT}/${RB_BRANDING_EXT}
+    VAR    ${branding_link}    id=brandingLink
+    Wait Until Element Is Visible    ${branding_link}
+    Click Element    ${branding_link}
+    Wait Until Location Is    ${BOOKING_URL_DATA}[${BOOKING_ENVIRONMENT}][URL]/${RB_URL_EXT.ADMIN}/${RB_URL_EXT.BRANDING}
 
 Click Notifications Navbar Link
-    Wait Until Element Is Visible    ${ADMIN_NAVBAR_NOTIFICATIONS_LINK}
-    Click Element    ${ADMIN_NAVBAR_NOTIFICATIONS_LINK}
-    Wait Until Location Is    ${BOOKING_URL_DATA}[${BOOKING_ENVIRONMENT}][URL]/${RB_ADMIN_EXT}/${RB_MESSAGES_EXT}
+    VAR    ${notifications_link}    css=a.nav-link[href="${RB_URL_EXT.ADMIN}/${RB_URL_EXT.MESSAGES}"]
+    Wait Until Element Is Visible    ${notifications_link}
+    Click Element    ${notifications_link}
+    Wait Until Location Is    ${BOOKING_URL_DATA}[${BOOKING_ENVIRONMENT}][URL]/${RB_URL_EXT.ADMIN}/${RB_URL_EXT.MESSAGES}
 
 Click Front Page Navbar Link
-    Wait Until Element Is Visible    ${ADMIN_NAVBAR_FRONT_PAGE_LINK}
-    Click Element    ${ADMIN_NAVBAR_FRONT_PAGE_LINK}
+    VAR    ${front_page_link}    id=frontPageLink
+    Wait Until Element Is Visible    ${front_page_link}
+    Click Element    ${front_page_link}
     Wait Until Location Is    ${BOOKING_URL_DATA}[${BOOKING_ENVIRONMENT}][URL]/
 
 Click Logout Navbar Link
-    Wait Until Element Is Visible    ${ADMIN_NAVBAR_LOGOUT_LINK}
-    Click Element    ${ADMIN_NAVBAR_LOGOUT_LINK}
-    Wait Until Location Is    ${BOOKING_URL_DATA}[${BOOKING_ENVIRONMENT}][URL]/${RB_ADMIN_EXT}
+    VAR    ${logout_link}    css=a.nav-link[href="${RB_URL_EXT.ADMIN}"]
+    Wait Until Element Is Visible    ${logout_link}
+    Click Element    ${logout_link}
+    Wait Until Location Is    ${BOOKING_URL_DATA}[${BOOKING_ENVIRONMENT}][URL]/${RB_URL_EXT.ADMIN}

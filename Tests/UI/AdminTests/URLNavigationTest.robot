@@ -39,7 +39,7 @@ Report URL Navigation Test
     New Web Browser
     Add Token Cookie    ${token_cookie}
     Navigate To Reports By URL
-    Wait Until Element Is Visible    ${RBC_CALENDAR}
+    Wait For Report Calendar To Be Visible
     [Teardown]    Close All Browsers
 
 Branding URL Navigation Test
@@ -48,7 +48,7 @@ Branding URL Navigation Test
     New Web Browser
     Add Token Cookie    ${token_cookie}
     Navigate To Branding By URL
-    Wait Until Element Is Visible    ${BRANDING_FORM}
+    Wait For Branding Form To Be Visible
     [Teardown]    Close All Browsers
 
 Message URL Navigation Test
@@ -57,5 +57,5 @@ Message URL Navigation Test
     New Web Browser
     Add Token Cookie    ${token_cookie}
     Navigate To Messages By URL
-    Wait Until Element Is Visible    ${MESSAGES_CONTAINER}
+    Wait For Messages Container To Be Visible
     [Teardown]    Close All Browsers
