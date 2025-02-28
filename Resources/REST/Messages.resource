@@ -10,40 +10,6 @@ Resource    Resources/Common/Requests.resource
 
 
 *** Keywords ***
-Post Request To Message Endpoint
-    [Arguments]    ${json}
-    VAR    ${url}    ${BOOKING_URL_DATA}[${BOOKING_ENVIRONMENT}][URL]/${RB_REST_EXT.MESSAGE}/
-    ${response}    POST    ${url}    cookies=${BANNER_COOKIE}    headers=${COMMON_HEADERS}    json=${json}
-    RETURN    ${response}
-
-Get Request From Message Endpoint
-    [Arguments]    ${token_cookie}
-    VAR    ${url}    ${BOOKING_URL_DATA}[${BOOKING_ENVIRONMENT}][URL]/${RB_REST_EXT.MESSAGE}/
-    ${response}    GET    url=${url}    cookies=${token_cookie}    headers=${COMMON_HEADERS}
-    RETURN    ${response}
-
-Get Request From Message Count Endpoint
-    [Arguments]    ${token_cookie}
-    VAR    ${url}    ${BOOKING_URL_DATA}[${BOOKING_ENVIRONMENT}][URL]/${RB_REST_EXT.MESSAGE_COUNT}
-    ${response}    GET    url=${url}    cookies=${token_cookie}    headers=${COMMON_HEADERS}
-    RETURN    ${response}
-
-Put Request To Read Message Endpoint
-    [Arguments]    ${id}    ${token_cookie}
-    VAR    ${url}    ${BOOKING_URL_DATA}[${BOOKING_ENVIRONMENT}][URL]/${RB_REST_EXT.MESSAGE}/${id}/${RB_REST_EXT.READ}
-    ${response}    PUT
-    ...    url=${url}
-    ...    cookies=${token_cookie}
-    ...    headers=${COMMON_HEADERS}
-    ...    json=${INCLUDE_CREDENTIALS}
-    RETURN    ${response}
-
-Get Request From One Message Endpoint
-    [Arguments]    ${id}    ${token_cookie}
-    VAR    ${url}    ${BOOKING_URL_DATA}[${BOOKING_ENVIRONMENT}][URL]/${RB_REST_EXT.MESSAGE}/${id}
-    ${response}    GET    url=${url}    cookies=${token_cookie}    headers=${COMMON_HEADERS}
-    RETURN    ${response}
-
 Get False Reads From Message Response
     [Arguments]    ${response}
     ${messages}    Get From Dictionary    ${response.json()}    messages    ${NONE}
@@ -60,3 +26,37 @@ Get Id Of Second False Read
         VAR    ${id}    ${NONE}
     END
     RETURN    ${id}
+
+Get Request From Message Count Endpoint
+    [Arguments]    ${token_cookie}
+    VAR    ${url}    ${BOOKING_URL_DATA}[${BOOKING_ENVIRONMENT}][URL]/${RB_REST_EXT.MESSAGE_COUNT}
+    ${response}    GET    url=${url}    cookies=${token_cookie}    headers=${COMMON_HEADERS}
+    RETURN    ${response}
+
+Get Request From Message Endpoint
+    [Arguments]    ${token_cookie}
+    VAR    ${url}    ${BOOKING_URL_DATA}[${BOOKING_ENVIRONMENT}][URL]/${RB_REST_EXT.MESSAGE}/
+    ${response}    GET    url=${url}    cookies=${token_cookie}    headers=${COMMON_HEADERS}
+    RETURN    ${response}
+
+Get Request From One Message Endpoint
+    [Arguments]    ${id}    ${token_cookie}
+    VAR    ${url}    ${BOOKING_URL_DATA}[${BOOKING_ENVIRONMENT}][URL]/${RB_REST_EXT.MESSAGE}/${id}
+    ${response}    GET    url=${url}    cookies=${token_cookie}    headers=${COMMON_HEADERS}
+    RETURN    ${response}
+
+Post Request To Message Endpoint
+    [Arguments]    ${json}
+    VAR    ${url}    ${BOOKING_URL_DATA}[${BOOKING_ENVIRONMENT}][URL]/${RB_REST_EXT.MESSAGE}/
+    ${response}    POST    ${url}    cookies=${BANNER_COOKIE}    headers=${COMMON_HEADERS}    json=${json}
+    RETURN    ${response}
+
+Put Request To Read Message Endpoint
+    [Arguments]    ${id}    ${token_cookie}
+    VAR    ${url}    ${BOOKING_URL_DATA}[${BOOKING_ENVIRONMENT}][URL]/${RB_REST_EXT.MESSAGE}/${id}/${RB_REST_EXT.READ}
+    ${response}    PUT
+    ...    url=${url}
+    ...    cookies=${token_cookie}
+    ...    headers=${COMMON_HEADERS}
+    ...    json=${INCLUDE_CREDENTIALS}
+    RETURN    ${response}

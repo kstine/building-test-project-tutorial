@@ -17,12 +17,16 @@ Verify Admin Menu Permissions
     Click Login Button
     Wait For Booking Management To Load
     Click Rooms Navbar Link
+    Wait For Rooms Location
     Click Report Navbar Link
+    Wait For Report Location
     Click Branding Navbar Link
+    Wait For Branding Location
     Click Notifications Navbar Link
+    Wait For Messages Location
     Click Front Page Navbar Link
     Go Back
-    Wait Until Location Is
-    ...        ${BOOKING_URL_DATA}[${BOOKING_ENVIRONMENT}][URL]/${RB_URL_EXT.ADMIN}/${RB_URL_EXT.MESSAGES}
+    Wait For Messages Location
     Click Logout Navbar Link
+    Wait For Admin Location
     [Teardown]    Close All Browsers

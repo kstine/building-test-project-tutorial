@@ -1,6 +1,6 @@
 *** Settings ***
-Resource     ../../Data/Secrets/LoadSecrets.resource
-Variables    EnvironmentVariables.json
+Resource        ../../Data/Secrets/LoadSecrets.resource
+Variables       EnvironmentVariables.json
 
 
 *** Variables ***

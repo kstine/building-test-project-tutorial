@@ -3,6 +3,10 @@ Documentation       Example test file.
 
 Resource            Resources/UI/Customer/Contact.resource
 
+Suite Teardown      Close All Browsers
+Test Setup          New Web Browser
+Test Teardown       Close Browser
+
 Test Tags           ui-api    contact-message    customer
 
 
@@ -18,7 +22,6 @@ Test Tags           ui-api    contact-message    customer
 *** Test Cases ***
 Verify Confirmation Message After Submitting Message
     [Tags]    happy-path
-    [Setup]    New Web Browser
     Enter Name Into Contact Form    ${MESSAGE_BODY}[name]
     Enter Email Into Contact Form    ${MESSAGE_BODY}[email]
     Enter Phone Into Contact Form    ${MESSAGE_BODY}[phone]
@@ -26,4 +29,3 @@ Verify Confirmation Message After Submitting Message
     Enter Message Into Contact Form    ${MESSAGE_BODY}[description]
     Click Submit Button On The Contact Form
     Verify Confirmation Message After Submitting Message    ${MESSAGE_BODY}[name]    ${MESSAGE_BODY}[subject]
-    [Teardown]    Close All Browsers

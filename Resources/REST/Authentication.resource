@@ -5,13 +5,6 @@ Resource    Resources/Common/Requests.resource
 
 
 *** Keywords ***
-Post Request To Authentication Endpoint
-    [Arguments]    ${username}    ${password}
-    VAR    ${url}    ${BOOKING_URL_DATA}[${BOOKING_ENVIRONMENT}][URL]/${RB_REST_EXT.AUTH}
-    VAR    &{json}    username=${username}    password=${password}
-    ${response}    POST    ${url}    json=${json}
-    RETURN    ${response}
-
 Get Token Cookie From Response
     [Arguments]    ${response}
     ${cookie_string}    Get From Dictionary    ${response.headers}    Set-Cookie    token=${NONE}
@@ -27,3 +20,10 @@ Get Token Cookie From Response
         VAR    &{cookie_dict}    token=${NONE}
     END
     RETURN    ${cookie_dict}
+
+Post Request To Authentication Endpoint
+    [Arguments]    ${username}    ${password}
+    VAR    ${url}    ${BOOKING_URL_DATA}[${BOOKING_ENVIRONMENT}][URL]/${RB_REST_EXT.AUTH}
+    VAR    &{json}    username=${username}    password=${password}
+    ${response}    POST    ${url}    json=${json}
+    RETURN    ${response}
