@@ -41,7 +41,7 @@ Put Request To Read Message Endpoint
 Get Request From One Message Endpoint
     [Arguments]    ${id}    ${token_cookie}
     VAR    ${url}    ${BOOKING_URL_DATA}[${BOOKING_ENVIRONMENT}][URL]/${RB_REST_EXT.MESSAGE}/${id}
-    ${response}    GET    url=${url}    cookies=${token_cookie}
+    ${response}    GET    url=${url}    cookies=${token_cookie}    headers=${COMMON_HEADERS}
     RETURN    ${response}
 
 Get False Reads From Message Response

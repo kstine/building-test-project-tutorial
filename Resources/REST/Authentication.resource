@@ -14,7 +14,7 @@ Post Request To Authentication Endpoint
 
 Get Token Cookie From Response
     [Arguments]    ${response}
-    ${cookie_string}    Get From Dictionary    ${response.headers}    Set-Cookie    ${NONE}
+    ${cookie_string}    Get From Dictionary    ${response.headers}    Set-Cookie    token=${NONE}
     TRY
         Should Contain    ${cookie_string}    token
         ${token_path_list}    Split String    ${cookie_string}    separator=;

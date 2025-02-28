@@ -8,9 +8,9 @@ Test Tags       rest-api    contact-message    admin
 *** Variables ***
 &{MESSAGE_BODY}
 ...                 name=sdf
-...                 email=sdf@sdf
+...                 email=sdf@sdf.sdf
 ...                 phone=sdfsdfsdfsdf
-...                 subject=sdfsd
+...                 subject=sdfsdf
 ...                 description=sdfsdfsdfsdfsdfsdfsdf
 
 
@@ -27,22 +27,22 @@ Verify Admin Can Read Message
     ${false_reads}    Get False Reads From Message Response    ${response}
     ${before_read}    Get Length    ${false_reads}
     ${id}    Get Id Of Second False Read    ${false_reads}
-    ${response_count}    Get Request From Message Count Endpoint    ${token_cookie}
-    VAR    ${before_count}    ${response_count.json()}
+    ${response}    Get Request From Message Count Endpoint    ${token_cookie}
+    VAR    ${before_count}    ${response.json()}
     Put Request To Read Message Endpoint    ${id}    ${token_cookie}
     Get Request From One Message Endpoint    ${id}    ${token_cookie}
     ${response}    Get Request From Message Endpoint    ${token_cookie}
     ${false_reads}    Get False Reads From Message Response    ${response}
     ${after_read}    Get Length    ${false_reads}
-    ${response_count}    Get Request From Message Count Endpoint    ${token_cookie}
-    VAR  ${after_count}    ${response_count.json()}
+    ${response}    Get Request From Message Count Endpoint    ${token_cookie}
+    VAR  ${after_count}    ${response.json()}
     Verify Count And Read Are Correct    ${before_count}    ${after_count}    ${before_read}    ${after_read}
 
 
 *** Keywords ***
 Verify Count And Read Are Correct
     [Arguments]    ${before_count}    ${after_count}    ${before_read}    ${after_read}
-    ${before_count_value}    Get From Dictionary    ${before_count}    count    ${NONE}
-    ${after_count_value}    Get From Dictionary    ${after_count}    count    ${NONE}
+    ${before_count_value}    Get From Dictionary    ${before_count}    count    ${0}
+    ${after_count_value}    Get From Dictionary    ${after_count}    count    ${0}
     Should Be Equal    ${before_count_value-1}    ${after_count_value}
     Should Be Equal    ${before_read-1}    ${after_read}

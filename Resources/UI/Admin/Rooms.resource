@@ -16,6 +16,7 @@ Resource    Resources/Common/Selenium.resource
 
 *** Keywords ***
 Verify Room Header Row Columns
+    Wait Until Element Is Visible    ${ROOM_HEADER.ROW}
     ${room_header_text}    Get Text    ${ROOM_HEADER.ROW}
     ${room_header_texts}    Split String    ${room_header_text}    separator=\n
     Lists Should Be Equal    ${room_header_texts}    ${ROOM_COLUMN_NAMES}
