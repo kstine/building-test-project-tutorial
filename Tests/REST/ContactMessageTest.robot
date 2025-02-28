@@ -20,9 +20,9 @@ Verify Message Endpoint Returns OK
     ...    Content-Type=application/json
     VAR    &{body}
     ...    name=sdf
-    ...    email=sdf@sdf
+    ...    email=sdf@sdf.sdf
     ...    phone=sdfsdfsdfsdf
-    ...    subject=sdfsd
+    ...    subject=sdfsdf
     ...    description=sdfsdfsdfsdfsdfsdfsdf
     VAR    &{cookie}
     ...    name=banner    value=true    domain=automationintesting.online
