@@ -22,9 +22,9 @@ ${BOOKING_ENVIRONMENT}      PROD
 ...                         credentials=include
 &{MESSAGE_BODY}
 ...                         name=sdf
-...                         email=sdf@sdf
+...                         email=sdf@sdf.sdf
 ...                         phone=sdfsdfsdfsdf
-...                         subject=sdfsd
+...                         subject=sdfsdf
 ...                         description=sdfsdfsdfsdfsdfsdfsdf
 &{BANNER_COOKIE}            name=banner    value=true    domain=${BOOKING_URL_DATA}[${BOOKING_ENVIRONMENT}][DOMAIN]
 &{ADMIN_CREDENTIALS}        username=admin    password=password
