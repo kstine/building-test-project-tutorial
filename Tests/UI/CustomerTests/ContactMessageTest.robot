@@ -9,9 +9,9 @@ Test Tags           ui-api    contact-message    customer
 *** Test Cases ***
 Verify Confirmation Message After Submitting Message
     [Tags]    happy-path
-    Open Browser    url=https://automationintesting.online    browser=Chrome    remote_url=http://localhost:4444
+    Open Browser    url=https://automationintesting.online    browser=Chrome
     Add Cookie    name=banner    value=true    domain=automationintesting.online
-    # Open Browser    url=http://tomtebook-pro.local:8080/    browser=Chrome    remote_url=http://localhost:4444
+    # Open Browser    url=http://tomtebook-pro.local:8080/    browser=Chrome
     # Add Cookie    name=banner    value=true    domain=tomtebook-pro.local
     Reload Page
     Wait Until Element Is Visible    css:input[id="name"]
