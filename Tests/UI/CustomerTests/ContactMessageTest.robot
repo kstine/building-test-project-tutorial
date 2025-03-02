@@ -14,7 +14,7 @@ Test Tags           ui-api    contact-message    customer
 ...                         DOMAIN=tomtebook-pro.local
 ...                         URL=http://tomtebook-pro.local:8080
 &{BOOKING_URL_DATA}         PROD=${PRODUCTION_URL_DATA}    TEST=${TEST_URL_DATA}
-${BOOKING_ENVIRONMENT}      PROD
+${BOOKING_ENVIRONMENT}      TEST
 &{BANNER_COOKIE}
 ...                         name=banner
 ...                         value=true
