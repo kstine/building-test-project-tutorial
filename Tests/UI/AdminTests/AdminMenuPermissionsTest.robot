@@ -51,12 +51,16 @@ Verify Admin Menu Permissions
     Wait Until Element Is Visible    ${ADMIN_NAVBAR_ROOMS_LINK}
     Click Element    ${ADMIN_NAVBAR_ROOMS_LINK}
     Wait Until Location Is    ${BOOKING_URL_DATA}[${BOOKING_ENVIRONMENT}][URL]/${RB_ADMIN_EXT}/
+    Wait Until Element Is Visible    ${ADMIN_NAVBAR_REPORT_LINK}
     Click Element    ${ADMIN_NAVBAR_REPORT_LINK}
     Wait Until Location Is    ${BOOKING_URL_DATA}[${BOOKING_ENVIRONMENT}][URL]/${RB_ADMIN_EXT}/${RB_REPORT_EXT}
+    Wait Until Element Is Visible    ${ADMIN_NAVBAR_BRANDING_LINK}
     Click Element    ${ADMIN_NAVBAR_BRANDING_LINK}
     Wait Until Location Is    ${BOOKING_URL_DATA}[${BOOKING_ENVIRONMENT}][URL]/${RB_ADMIN_EXT}/${RB_BRANDING_EXT}
+    Wait Until Element Is Visible    ${ADMIN_NAVBAR_NOTIFICATIONS_LINK}
     Click Element    ${ADMIN_NAVBAR_NOTIFICATIONS_LINK}
     Wait Until Location Is    ${BOOKING_URL_DATA}[${BOOKING_ENVIRONMENT}][URL]/${RB_ADMIN_EXT}/${RB_MESSAGES_EXT}
+    Wait Until Element Is Visible    ${ADMIN_NAVBAR_FRONT_PAGE_LINK}
     Click Element    ${ADMIN_NAVBAR_FRONT_PAGE_LINK}
     Wait Until Location Is    ${BOOKING_URL_DATA}[${BOOKING_ENVIRONMENT}][URL]/
     Go Back

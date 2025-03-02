@@ -15,7 +15,7 @@ Test Tags       rest-api    contact-message    admin
 ...                         DOMAIN=tomtebook-pro.local
 ...                         URL=http://tomtebook-pro.local:8080/
 &{BOOKING_URL_DATA}         PROD=${PRODUCTION_URL_DATA}    TEST=${TEST_URL_DATA}
-${BOOKING_ENVIRONMENT}      PROD
+${BOOKING_ENVIRONMENT}      TEST
 &{COMMON_HEADERS}           Accept=application/json    Content-Type=application/json
 &{INCLUDE_CREDENTIALS}
 ...                         headers=${COMMON_HEADERS}
