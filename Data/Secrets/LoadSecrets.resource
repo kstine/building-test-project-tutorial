@@ -1,3 +1,3 @@
 *** Variables ***
-${SECRET_USERNAME}    admin
-${SECRET_PASSWORD}    password
+${SECRET_USERNAME}      admin
+${SECRET_PASSWORD}      password

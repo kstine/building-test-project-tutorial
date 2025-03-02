@@ -50,7 +50,7 @@ Value Is Space
     EXCEPT    AS    ${error}
         Log    ${error}    WARN
         VAR    ${is_space}    ${False}
-    END        
+    END
     RETURN    ${is_space}
 
 Value Is Between Lengths

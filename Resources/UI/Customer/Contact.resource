@@ -1,4 +1,5 @@
 *** Settings ***
-Documentation    Interface for Contact Form.
-Resource    ContactVerifications.resource
-Resource    ContactPageObject.resource
+Documentation       Interface for Contact Form.
+
+Resource            ContactVerifications.resource
+Resource            ContactPageObject.resource

@@ -1,5 +1,5 @@
 # robocop: disable
-# 
+#
 # This is a Robotframework Arguments File
 # It is as easy as running this command. Update this file location at the end:
 # robot -A Data/ArgumentsFiles/Common/DefaultArguments.robot
