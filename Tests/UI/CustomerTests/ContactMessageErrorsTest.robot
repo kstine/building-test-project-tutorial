@@ -12,7 +12,9 @@ Test Tags           ui-api    contact-message    customer
 Verify Error Messages Are Correct
     [Tags]    error-messages
     [Template]    Test Template
-    ${EMPTY}    c@    ${SPACE*11}    ${EMPTY}    ${SPACE}
+    ${EMPTY}    c@com.co    ${SPACE*11}    ${EMPTY}    ${SPACE}
+    ${SPACE}    c@com.co    ${SPACE*11}    ${EMPTY}    ${SPACE}
+    ${NONE}    c@com.co    ${SPACE*11}    ${EMPTY}    ${SPACE}
 
 
 *** Keywords ***

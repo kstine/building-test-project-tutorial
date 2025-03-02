@@ -27,3 +27,9 @@ Post Request To Authentication Endpoint
     VAR    &{json}    username=${username}    password=${password}
     ${response}    POST    ${url}    json=${json}
     RETURN    ${response}
+
+Get Token From Authentication Endpoint
+    [Arguments]    ${username}    ${password}
+    ${response}    Post Request To Authentication Endpoint    ${username}    ${password}
+    ${token_cookie}    Get Token Cookie From Response    ${response}
+    RETURN    ${token_cookie}

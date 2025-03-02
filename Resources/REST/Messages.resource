@@ -60,3 +60,14 @@ Put Request To Read Message Endpoint
     ...    headers=${COMMON_HEADERS}
     ...    json=${INCLUDE_CREDENTIALS}
     RETURN    ${response}
+
+Get False Reads From Message Endpoint
+    [Arguments]    ${token_cookie}
+    ${response}    Get Request From Message Endpoint    ${token_cookie}
+    ${false_reads}    Get False Reads From Message Response    ${response}
+    RETURN    ${false_reads}
+
+Get Count Body From Count Endpoint
+    [Arguments]    ${token_cookie}
+    ${response}    Get Request From Message Count Endpoint    ${token_cookie}
+    RETURN    ${response.json()}
