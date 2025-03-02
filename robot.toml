@@ -4,7 +4,6 @@ default_profiles = "common"
 [profiles.common]
 output-dir = "Results"
 xunit = "junit.xml"
-log-level = "TRACE"
 
 [profiles.local]
 inherits = "common"
