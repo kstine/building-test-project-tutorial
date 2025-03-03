@@ -37,6 +37,7 @@ Verify Admin Can Read Message
 
 *** Keywords ***
 Test Setup
+    Create RB Session
     Post Request To Message Endpoint    json=${MESSAGE_BODY}
     ${token_cookie}    Get Token From Authentication Endpoint    &{ADMIN_CREDENTIALS}
     VAR    ${TOKEN_COOKIE}    ${token_cookie}    scope=TEST    # robocop: off=no-test-variable

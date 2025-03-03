@@ -22,3 +22,7 @@ dry-run = true
 inherits = "common"
 suites = ["Example"]
 paths = ["Tests"]
+
+[profiles.run-all-prod]
+inherits = "run-all"
+variables = {BOOKING_ENVIRONMENT="PROD"}
