@@ -10,6 +10,7 @@ Test Tags       rest-api    contact-message    admin
 
 
 *** Variables ***
+${TOKEN_COOKIE}    ${NONE}  # test var dynamically set
 &{MESSAGE_BODY}
 ...                 name=sdf
 ...                 email=sdf@sdf.sdf

@@ -18,17 +18,11 @@ Email Should Not Be Well Formed
 Is Value None Empty Or Space
     [Arguments]    ${value}
     ${is_nes}    Value Is None    ${value}
-    IF    ${is_nes}
-        RETURN    ${is_nes}
-    ELSE
-        ${is_nes}    Value Is Empty    ${value}
-        IF    ${is_nes}
-            RETURN    ${is_nes}
-        ELSE
-            ${is_nes}    Value Is Space    ${value}
-            RETURN    ${is_nes}
-        END
-    END
+    IF    ${is_nes}   RETURN    ${is_nes}
+    ${is_nes}    Value Is Empty    ${value}
+    IF    ${is_nes}    RETURN    ${is_nes}
+    ${is_nes}    Value Is Space    ${value}
+    RETURN    ${is_nes}
 
 Value Is None
     [Arguments]    ${value}
@@ -37,11 +31,8 @@ Value Is None
 
 Value Is Empty
     [Arguments]    ${value}
-    IF    '${value}' == '${EMPTY}'
-        RETURN    ${True}
-    ELSE
-        RETURN    ${False}
-    END
+    IF    '${value}' == '${EMPTY}'    RETURN    ${True}
+    RETURN    ${False}
 
 Value Is Space
     [Arguments]    ${value}
@@ -58,15 +49,13 @@ Value Is Between Lengths
     ${value_length}    Get Length    ${value}
     IF    ${value_length} > ${min_length} or ${value_length} < ${max_length}
         RETURN    ${True}
-    ELSE
-        RETURN    ${False}
     END
+    RETURN    ${False}
 
 Value Is Not Between Lengths
     [Arguments]    ${value}    ${min_length}    ${max_length}
     ${value_length}    Get Length    ${value}
     IF    $value_length < $min_length or $value_length > $max_length
         RETURN    ${True}
-    ELSE
-        RETURN    ${False}
     END
+    RETURN    ${False}
