@@ -28,46 +28,34 @@ Get Id Of Second False Read
     RETURN    ${id}
 
 Get Request From Message Count Endpoint
-    [Arguments]    ${token_cookie}
-    VAR    ${url}    ${BOOKING_URL_DATA}[${BOOKING_ENVIRONMENT}][URL]/${RB_REST_EXT.MESSAGE_COUNT}
-    ${response}    GET    url=${url}    cookies=${token_cookie}    headers=${COMMON_HEADERS}
+    [Arguments]    ${alias}
+    VAR    ${url}    ${RB_REST_EXT.MESSAGE_COUNT}
+    ${response}    GET On Session    ${alias}    url=${url}
     RETURN    ${response}
 
 Get Request From Message Endpoint
-    [Arguments]    ${token_cookie}
-    VAR    ${url}    ${BOOKING_URL_DATA}[${BOOKING_ENVIRONMENT}][URL]/${RB_REST_EXT.MESSAGE}/
-    ${response}    GET    url=${url}    cookies=${token_cookie}    headers=${COMMON_HEADERS}
+    [Arguments]    ${alias}
+    VAR    ${url}    ${RB_REST_EXT.MESSAGE}/
+    ${response}    Get On Session    ${alias}    url=${url}
     RETURN    ${response}
 
 Get Request From One Message Endpoint
-    [Arguments]    ${id}    ${token_cookie}
-    VAR    ${url}    ${BOOKING_URL_DATA}[${BOOKING_ENVIRONMENT}][URL]/${RB_REST_EXT.MESSAGE}/${id}
-    ${response}    GET    url=${url}    cookies=${token_cookie}    headers=${COMMON_HEADERS}
+    [Arguments]    ${alias}    ${id}
+    VAR    ${url}    ${RB_REST_EXT.MESSAGE}/${id}
+    ${response}    GET On Session    ${alias}    url=${url}
     RETURN    ${response}
 
 Post Request To Message Endpoint
-    [Arguments]    ${json}
-    VAR    ${url}    ${BOOKING_URL_DATA}[${BOOKING_ENVIRONMENT}][URL]/${RB_REST_EXT.MESSAGE}/
-    ${response}    POST    ${url}    cookies=${BANNER_COOKIE}    headers=${COMMON_HEADERS}    json=${json}
+    [Arguments]    ${alias}    ${json}
+    VAR    ${url}    ${RB_REST_EXT.MESSAGE}/
+    ${response}    POST On Session    ${alias}    ${url}    json=${json}
     RETURN    ${response}
 
 Put Request To Read Message Endpoint
-    [Arguments]    ${id}    ${token_cookie}
-    VAR    ${url}    ${BOOKING_URL_DATA}[${BOOKING_ENVIRONMENT}][URL]/${RB_REST_EXT.MESSAGE}/${id}/${RB_REST_EXT.READ}
-    ${response}    PUT
-    ...    url=${url}
-    ...    cookies=${token_cookie}
+    [Arguments]    ${alias}    ${id}
+    VAR    ${url}    ${RB_REST_EXT.MESSAGE}/${id}/${RB_REST_EXT.READ}
+    VAR    &{INCLUDE_CREDENTIALS}
     ...    headers=${COMMON_HEADERS}
-    ...    json=${INCLUDE_CREDENTIALS}
+    ...    credentials=include
+    ${response}    PUT On Session    ${alias}    url=${url}    json=${INCLUDE_CREDENTIALS}
     RETURN    ${response}
-
-Get False Reads From Message Endpoint
-    [Arguments]    ${token_cookie}
-    ${response}    Get Request From Message Endpoint    ${token_cookie}
-    ${false_reads}    Get False Reads From Message Response    ${response}
-    RETURN    ${false_reads}
-
-Get Count Body From Count Endpoint
-    [Arguments]    ${token_cookie}
-    ${response}    Get Request From Message Count Endpoint    ${token_cookie}
-    RETURN    ${response.json()}

@@ -1,16 +1,22 @@
 *** Settings ***
-Resource            Resources/REST/Authentication.resource
+Resource            Resources/REST/RestfulBookerRestApi.resource
 Resource            Resources/UI/Admin/Branding.resource
 Resource            Resources/UI/Admin/Login.resource
 Resource            Resources/UI/Admin/Messages.resource
 Resource            Resources/UI/Admin/Report.resource
 Resource            Resources/UI/Admin/Rooms.resource
+Resource            Resources/UI/Common/Navigation.resource
 
-Suite Teardown      Close All Browsers
+Suite Setup         Suite Setup Keywords
+Suite Teardown      Suite Teardown Keywords
 Test Setup          New Web Browser    add_banner_cookie=${FALSE}
 Test Teardown       Close Browser
 
 Test Tags           ui-api    url-navigation    admin
+
+
+*** Variables ***
+${UI_TEST_ALIAS}    ui-test-alias
 
 
 *** Test Cases ***
@@ -45,8 +51,15 @@ Message URL Navigation Test
 
 
 *** Keywords ***
+Suite Setup Keywords
+    Create RB Session    ${UI_TEST_ALIAS}
+
+Suite Teardown Keywords
+    Delete All Sessions
+    Close All Browsers
+
 Test Setup With Token Cookie
-    ${response}    Post Request To Authentication Endpoint    &{ADMIN_CREDENTIALS}
+    ${response}    Post On Session To Authentication Endpoint    ${UI_TEST_ALIAS}    &{ADMIN_CREDENTIALS}
     ${token_cookie}    Get Token Cookie From Response    ${response}
     New Web Browser
     Add Token Cookie    ${token_cookie}

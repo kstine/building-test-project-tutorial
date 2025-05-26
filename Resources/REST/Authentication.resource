@@ -21,22 +21,9 @@ Get Token Cookie From Response
     END
     RETURN    ${cookie_dict}
 
-Post Request To Authentication Endpoint
-    [Arguments]    ${username}    ${password}
-    VAR    ${url}    ${BOOKING_URL_DATA}[${BOOKING_ENVIRONMENT}][URL]/${RB_REST_EXT.AUTH}
-    VAR    &{json}    username=${username}    password=${password}
-    ${response}    POST    ${url}    json=${json}
-    RETURN    ${response}
-
-Get Token From Authentication Endpoint
-    [Arguments]    ${username}    ${password}
-    ${response}    Post On Session To Authentication Endpoint    ${username}    ${password}
-    ${token_cookie}    Get Token Cookie From Response    ${response}
-    RETURN    ${token_cookie}
-
 Post On Session To Authentication Endpoint
-    [Arguments]    ${username}    ${password}
+    [Arguments]    ${alias}    ${username}    ${password}
     VAR    ${url}    ${RB_REST_EXT.AUTH}
     VAR    &{json}    username=${username}    password=${password}
-    ${response}    POST On Session    ${DEFAULT_ALIAS}    ${url}    json=${json}
+    ${response}    POST On Session    ${alias}    ${url}    json=${json}
     RETURN    ${response}
