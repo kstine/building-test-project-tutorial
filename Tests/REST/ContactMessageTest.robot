@@ -3,14 +3,13 @@
 
 
 *** Settings ***
-Resource        Resources/REST/Authentication.resource
-Resource        Resources/REST/Messages.resource
+Resource        Resources/REST/RestfulBookerRestApi.resource
 
 Test Tags       rest-api    contact-message    admin
 
 
 *** Variables ***
-${TOKEN_COOKIE}    ${NONE}  # test var dynamically set
+${MESSAGE_ALIAS}    message-alias
 &{MESSAGE_BODY}
 ...                 name=sdf
 ...                 email=sdf@sdf.sdf
@@ -22,26 +21,31 @@ ${TOKEN_COOKIE}    ${NONE}  # test var dynamically set
 *** Test Cases ***
 Verify Admin Can Read Message
     [Setup]    Test Setup
-    ${before_false_reads}    Get False Reads From Message Endpoint    ${TOKEN_COOKIE}
+    ${before_false_reads}    Get False Reads From Message Endpoint    ${MESSAGE_ALIAS}
     ${id}    Get Id Of Second False Read    ${before_false_reads}
-    ${before_count}    Get Count Body From Count Endpoint    ${TOKEN_COOKIE}
-    Put Request To Read Message Endpoint    ${id}    ${TOKEN_COOKIE}
-    Get Request From One Message Endpoint    ${id}    ${TOKEN_COOKIE}
-    ${after_false_reads}    Get False Reads From Message Endpoint    ${TOKEN_COOKIE}
-    ${after_count}    Get Count Body From Count Endpoint    ${TOKEN_COOKIE}
+    ${before_count}    Get Count Body From Count Endpoint    ${MESSAGE_ALIAS}
+    Put Request To Read Message Endpoint    ${MESSAGE_ALIAS}    ${id}
+    Get Request From One Message Endpoint    ${MESSAGE_ALIAS}    ${id}
+    ${after_false_reads}    Get False Reads From Message Endpoint    ${MESSAGE_ALIAS}
+    ${after_count}    Get Count Body From Count Endpoint    ${MESSAGE_ALIAS}
     Verify Count And Read Are Correct
     ...    ${before_count}
     ...    ${after_count}
     ...    ${before_false_reads}
     ...    ${after_false_reads}
+    [Teardown]    Test Teardown
 
 
 *** Keywords ***
 Test Setup
-    Create RB Session
-    Post Request To Message Endpoint    json=${MESSAGE_BODY}
-    ${token_cookie}    Get Token From Authentication Endpoint    &{ADMIN_CREDENTIALS}
-    VAR    ${TOKEN_COOKIE}    ${token_cookie}    scope=TEST    # robocop: off=no-test-variable
+    Create RB Session    ${MESSAGE_ALIAS}
+    Create RB Session    ${MESSAGE_ALIAS}
+    Post Request To Message Endpoint    ${MESSAGE_ALIAS}    json=${MESSAGE_BODY}
+    ${token_cookie}    Get Token From Authentication Endpoint    ${MESSAGE_ALIAS}    &{ADMIN_CREDENTIALS}
+    Update RB Session    alias=${MESSAGE_ALIAS}    cookies=${token_cookie}
+
+Test Teardown
+    Delete All Sessions
 
 Verify Count And Read Are Correct
     [Arguments]    ${before_count}    ${after_count}    ${before_false_reads}    ${after_false_reads}

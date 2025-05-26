@@ -3,6 +3,7 @@ Documentation       Example test file.
 
 Resource            Resources/UI/Admin/Login.resource
 Resource            Resources/UI/Admin/Navbar.resource
+Resource            Resources/UI/Common/Navigation.resource
 
 Test Tags           ui-api    menu-tour    admin
 
