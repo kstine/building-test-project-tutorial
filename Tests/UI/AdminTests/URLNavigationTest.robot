@@ -20,33 +20,28 @@ ${UI_TEST_ALIAS}    ui-test-alias
 
 
 *** Test Cases ***
-URL Navigation Test
-    Click Let Me Hack Button
-    Verify Banner Cookie
-
 Admin URL Navigation Test
-    Click Let Me Hack Button
-    Navigate To Admin Login Page
+    Navigate To "Admin" Login Page
     Wait For Login Header To Load
 
 Room URL Navigation Test
     [Setup]    Test Setup With Token Cookie
-    Navigate To Rooms By URL
+    Navigate To Admin "Rooms" By URL
     Verify Room Header Row Columns
 
 Report URL Navigation Test
     [Setup]    Test Setup With Token Cookie
-    Navigate To Reports By URL
+    Navigate To Admin "Report" By URL
     Wait For Report Calendar To Be Visible
 
 Branding URL Navigation Test
     [Setup]    Test Setup With Token Cookie
-    Navigate To Branding By URL
+    Navigate To Admin "Branding" By URL
     Wait For Branding Form To Be Visible
 
 Message URL Navigation Test
     [Setup]    Test Setup With Token Cookie
-    Navigate To Messages By URL
+    Navigate To Admin "Messages" By URL
     Wait For Messages Container To Be Visible
 
 

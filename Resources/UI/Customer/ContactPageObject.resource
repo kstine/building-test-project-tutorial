@@ -2,13 +2,21 @@
 Resource    Resources/Common/Selenium.resource
 
 
+*** Variables ***
+${CONTACT_FORM_SUBMIT_BUTTON}       xpath=//button[text()="Submit"]
+
+
 *** Keywords ***
+Scroll Contact Submit Button Into View
+    Scroll Element Into View    ${CONTACT_FORM_SUBMIT_BUTTON}
+
 Click Submit Button On The Contact Form
-    Wait Until Element Is Enabled    css=button[id="submitContact"]
-    Click Button    Submit
+    Wait Until Element Is Visible    ${CONTACT_FORM_SUBMIT_BUTTON}
+    Click Element    ${CONTACT_FORM_SUBMIT_BUTTON}
 
 Enter Contact Message Data
     [Arguments]    ${name}    ${email}    ${phone}    ${subject}    ${message}
+    Scroll Contact Submit Button Into View
     IF    $name is not None    Enter Name Into Contact Form    ${name}
     IF    $email is not None    Enter Email Into Contact Form    ${email}
     IF    $phone is not None    Enter Phone Into Contact Form    ${phone}

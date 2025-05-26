@@ -5,10 +5,10 @@ Resource    Resources/Utilities/ValueUtilities.resource
 
 *** Variables ***
 &{CONFIRMATION_MESSAGE}
-...                         HEADER=css=div.row.contact > div:nth-child(2) > div > p:nth-child(2)
-...                         HEADER_TEXT=We'll get back to you about
-...                         SUBJECT=css=div.row.contact > div:nth-child(2) > div > p:nth-child(3)
-...                         ASAP=css=div.row.contact > div:nth-child(2) > div > p:nth-child(4)
+...                         GET_BACK=css=#contact > div.container p:nth-child(2)
+...                         GET_BACK_TEXT=We'll get back to you about
+...                         SUBJECT=css=#contact > div.container p:nth-child(3)
+...                         ASAP=css=#contact > div.container p:nth-child(4)
 ...                         ASAP_TEXT=as soon as possible.
 &{CONTACT_FORM_ALERTS}
 ...                         NAME_BLANK=Name may not be blank
@@ -51,7 +51,7 @@ Verify Blank Subject Alerts
 Verify Confirmation Message After Submitting Message
     [Arguments]    ${name}    ${subject}
     Wait Until Page Contains    Thanks for getting in touch ${name}!
-    Element Should Contain    ${CONFIRMATION_MESSAGE}[HEADER]    ${CONFIRMATION_MESSAGE}[HEADER_TEXT]
+    Element Should Contain    ${CONFIRMATION_MESSAGE}[GET_BACK]    ${CONFIRMATION_MESSAGE}[GET_BACK_TEXT]
     Element Should Contain    ${CONFIRMATION_MESSAGE}[SUBJECT]    ${subject}
     Element Should Contain    ${CONFIRMATION_MESSAGE}[ASAP]    ${CONFIRMATION_MESSAGE}[ASAP_TEXT]
 

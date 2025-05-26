@@ -18,7 +18,7 @@ Email Should Not Be Well Formed
 Is Value None Empty Or Space
     [Arguments]    ${value}
     ${is_nes}    Value Is None    ${value}
-    IF    ${is_nes}   RETURN    ${is_nes}
+    IF    ${is_nes}    RETURN    ${is_nes}
     ${is_nes}    Value Is Empty    ${value}
     IF    ${is_nes}    RETURN    ${is_nes}
     ${is_nes}    Value Is Space    ${value}

@@ -20,6 +20,6 @@ Enter Username
     Input Text    ${login_username_input}    ${username}
 
 Wait For Login Header To Load
-    VAR    ${login_header}    css=h2[data-testid="login-header"]
+    VAR    ${login_header}    xpath=//h2[text()="Login"]
     Wait Until Page Contains Element    ${login_header}
     Wait Until Element Is Visible    ${login_header}

@@ -3,27 +3,21 @@ Resource    Resources/Common/Selenium.resource
 
 
 *** Keywords ***
-Navigate To Admin Login Page
-    VAR    ${url}    ${BOOKING_URL}/${RB_URL_EXT.ADMIN}
+Wait For Front Page To Load
+    TRY
+        Wait Until Location Is    ${BOOKING_URL}
+    EXCEPT    AS    ${error}
+        Log    ${error}    INFO
+        Log    Trying again...    INFO
+        Wait Until Location Is    ${BOOKING_URL}/
+    END
+
+Navigate To "${location}" Login Page
+    VAR    ${url}    ${BOOKING_URL}/${RB_URL_EXT}[${location}]
     Go To    ${url}
     Wait Until Location Is    ${url}
 
-Navigate To Branding By URL
-    VAR    ${url}    ${BOOKING_URL}/${RB_URL_EXT.ADMIN}/${RB_URL_EXT.BRANDING}
-    Go To    ${url}
-    Wait Until Location Is    ${url}
-
-Navigate To Messages By URL
-    VAR    ${url}    ${BOOKING_URL}/${RB_URL_EXT.ADMIN}/${RB_URL_EXT.MESSAGES}
-    Go To    ${url}
-    Wait Until Location Is    ${url}
-
-Navigate To Reports By URL
-    VAR    ${url}    ${BOOKING_URL}/${RB_URL_EXT.ADMIN}/${RB_URL_EXT.REPORT}
-    Go To    ${url}
-    Wait Until Location Is    ${url}
-
-Navigate To Rooms By URL
-    VAR    ${url}    ${BOOKING_URL}/${RB_URL_EXT.ADMIN}/
+Navigate To Admin "${location}" By URL
+    VAR    ${url}    ${BOOKING_URL}/${RB_ADMIN_URL_EXT}[${location}]
     Go To    ${url}
     Wait Until Location Is    ${url}

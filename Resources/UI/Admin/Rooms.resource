@@ -4,8 +4,7 @@ Resource    Resources/Common/Selenium.resource
 
 
 *** Variables ***
-&{ROOM_HEADER}          ROW=css=div.container > div > div > div > div.row
-...                     COLUMNS=css=div.container > div > div > div > div.row > div
+&{ROOM_HEADER}          ROW=css=div.rowHeader
 @{ROOM_COLUMN_NAMES}
 ...                     Room #
 ...                     Type
@@ -17,6 +16,6 @@ Resource    Resources/Common/Selenium.resource
 *** Keywords ***
 Verify Room Header Row Columns
     Wait Until Element Is Visible    ${ROOM_HEADER.ROW}
-    ${room_header_text}    Get Text    ${ROOM_HEADER.ROW}
-    ${room_header_texts}    Split String    ${room_header_text}    separator=\n
+    ${elements}    Get WebElements    ${ROOM_HEADER.ROW}
+    ${room_header_texts}    Evaluate    [ele.text for ele in $elements]
     Lists Should Be Equal    ${room_header_texts}    ${ROOM_COLUMN_NAMES}

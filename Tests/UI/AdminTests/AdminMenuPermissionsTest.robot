@@ -2,8 +2,9 @@
 Documentation       Example test file.
 
 Resource            Resources/UI/Admin/Login.resource
-Resource            Resources/UI/Admin/Navbar.resource
+Resource            Resources/UI/Admin/AdminNavbar.resource
 Resource            Resources/UI/Common/Navigation.resource
+Resource            Resources/UI/Customer/CustomerNavbar.resource
 
 Test Tags           ui-api    menu-tour    admin
 
@@ -12,22 +13,19 @@ Test Tags           ui-api    menu-tour    admin
 Verify Admin Menu Permissions
     [Tags]    happy-path
     [Setup]    New Web Browser
-    Navigate To Admin Login Page
+    Click "Admin" Navbar Link
     Enter Username    ${ADMIN_CREDENTIALS}[username]
     Enter Password    ${ADMIN_CREDENTIALS}[password]
     Click Login Button
     Wait For Booking Management To Load
-    Click Rooms Navbar Link
-    Wait For Rooms Location
-    Click Report Navbar Link
-    Wait For Report Location
-    Click Branding Navbar Link
-    Wait For Branding Location
-    Click Notifications Navbar Link
-    Wait For Messages Location
-    Click Front Page Navbar Link
+    Click "Rooms" Admin Navbar Link
+    Click "Report" Admin Navbar Link
+    Click "Branding" Admin Navbar Link
+    Click "Messages" Admin Navbar Link
+    Click Front Page Admin Navbar Link
+    Wait For Front Page To Load
     Go Back
-    Wait For Messages Location
-    Click Logout Navbar Link
-    Wait For Admin Location
+    Wait For "Messages" Admin Location
+    Click Logout Admin Navbar Link
+    Wait For Front Page To Load
     [Teardown]    Close All Browsers

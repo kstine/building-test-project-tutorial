@@ -10,3 +10,4 @@ Resource    Environment.resource
 ...                     MESSAGE=message
 ...                     MESSAGE_COUNT=message/count
 ...                     READ=read
+${RB_REST_API}          api

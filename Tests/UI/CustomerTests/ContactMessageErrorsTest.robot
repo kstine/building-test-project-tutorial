@@ -2,6 +2,7 @@
 Documentation       Example test file.
 
 Resource            Resources/UI/Customer/Contact.resource
+Resource            Resources/UI/Customer/CustomerNavbar.resource
 
 Suite Teardown      Close All Browsers
 
@@ -21,6 +22,7 @@ Verify Error Messages Are Correct
 Test Template
     [Arguments]    ${name}    ${email}    ${phone}    ${subject}    ${message}
     [Setup]    New Web Browser
+    Click "Contact" Navbar Link
     Enter Contact Message Data    ${name}    ${email}    ${phone}    ${subject}    ${message}
     Verify Error Messages    ${name}    ${email}    ${phone}    ${subject}    ${message}
     [Teardown]    Close Browser

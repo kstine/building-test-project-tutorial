@@ -5,12 +5,24 @@ Resource    Environment.resource
 
 
 *** Variables ***
-${BROWSER}          Chrome
+${BROWSER}              Chrome
+# &{RB_URL_EXT}
+# ...    ADMIN=\#/admin
+# ...    REPORT=report
+# ...    BRANDING=branding
+# ...    MESSAGES=messages
 &{RB_URL_EXT}
-...                 ADMIN=\#/admin
-...                 REPORT=report
-...                 BRANDING=branding
-...                 MESSAGES=messages
+...                     Rooms=#rooms
+...                     Booking=#booking
+...                     Amenities=#amenities
+...                     Location=#location
+...                     Contact=#contact
+...                     Admin=admin
+&{RB_ADMIN_URL_EXT}
+...                     Rooms=admin/rooms
+...                     Report=admin/report
+...                     Branding=admin/branding
+...                     Messages=admin/message
 
 
 *** Keywords ***

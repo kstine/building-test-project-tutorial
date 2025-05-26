@@ -29,33 +29,35 @@ Get Id Of Second False Read
 
 Get Request From Message Count Endpoint
     [Arguments]    ${alias}
-    VAR    ${url}    ${RB_REST_EXT.MESSAGE_COUNT}
+    VAR    ${url}    ${RB_REST_API}/${RB_REST_EXT.MESSAGE_COUNT}
     ${response}    GET On Session    ${alias}    url=${url}
     RETURN    ${response}
 
 Get Request From Message Endpoint
     [Arguments]    ${alias}
-    VAR    ${url}    ${RB_REST_EXT.MESSAGE}/
+    VAR    ${url}    ${RB_REST_API}/${RB_REST_EXT.MESSAGE}/
     ${response}    Get On Session    ${alias}    url=${url}
     RETURN    ${response}
 
 Get Request From One Message Endpoint
     [Arguments]    ${alias}    ${id}
-    VAR    ${url}    ${RB_REST_EXT.MESSAGE}/${id}
+    VAR    ${url}    ${RB_REST_API}/${RB_REST_EXT.MESSAGE}/${id}
     ${response}    GET On Session    ${alias}    url=${url}
     RETURN    ${response}
 
 Post Request To Message Endpoint
     [Arguments]    ${alias}    ${json}
-    VAR    ${url}    ${RB_REST_EXT.MESSAGE}/
+    VAR    ${url}    ${RB_REST_API}/${RB_REST_EXT.MESSAGE}/
     ${response}    POST On Session    ${alias}    ${url}    json=${json}
     RETURN    ${response}
 
 Put Request To Read Message Endpoint
     [Arguments]    ${alias}    ${id}
-    VAR    ${url}    ${RB_REST_EXT.MESSAGE}/${id}/${RB_REST_EXT.READ}
+    VAR    ${url}    ${RB_REST_API}/${RB_REST_EXT.MESSAGE}/${id}/${RB_REST_EXT.READ}
+    # VAR    &{INCLUDE_CREDENTIALS}
+    # ...    headers=${COMMON_HEADERS}
+    # ...    credentials=include
     VAR    &{INCLUDE_CREDENTIALS}
-    ...    headers=${COMMON_HEADERS}
-    ...    credentials=include
+    ...    success=${TRUE}
     ${response}    PUT On Session    ${alias}    url=${url}    json=${INCLUDE_CREDENTIALS}
     RETURN    ${response}

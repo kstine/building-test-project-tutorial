@@ -2,6 +2,7 @@
 Documentation       Example test file.
 
 Resource            Resources/UI/Customer/Contact.resource
+Resource            Resources/UI/Customer/CustomerNavbar.resource
 
 Suite Teardown      Close All Browsers
 Test Setup          New Web Browser
@@ -22,6 +23,8 @@ Test Tags           ui-api    contact-message    customer
 *** Test Cases ***
 Verify Confirmation Message After Submitting Message
     [Tags]    happy-path
+    Click "Contact" Navbar Link
+    Scroll Contact Submit Button Into View
     Enter Name Into Contact Form    ${MESSAGE_BODY}[name]
     Enter Email Into Contact Form    ${MESSAGE_BODY}[email]
     Enter Phone Into Contact Form    ${MESSAGE_BODY}[phone]
