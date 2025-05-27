@@ -54,10 +54,6 @@ Post Request To Message Endpoint
 Put Request To Read Message Endpoint
     [Arguments]    ${alias}    ${id}
     VAR    ${url}    ${RB_REST_API}/${RB_REST_EXT.MESSAGE}/${id}/${RB_REST_EXT.READ}
-    # VAR    &{INCLUDE_CREDENTIALS}
-    # ...    headers=${COMMON_HEADERS}
-    # ...    credentials=include
-    VAR    &{INCLUDE_CREDENTIALS}
-    ...    success=${TRUE}
+    VAR    &{INCLUDE_CREDENTIALS}    success=${TRUE}
     ${response}    PUT On Session    ${alias}    url=${url}    json=${INCLUDE_CREDENTIALS}
     RETURN    ${response}

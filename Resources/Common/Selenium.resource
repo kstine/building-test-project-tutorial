@@ -6,11 +6,6 @@ Resource    Environment.resource
 
 *** Variables ***
 ${BROWSER}              Chrome
-# &{RB_URL_EXT}
-# ...    ADMIN=\#/admin
-# ...    REPORT=report
-# ...    BRANDING=branding
-# ...    MESSAGES=messages
 &{RB_URL_EXT}
 ...                     Rooms=#rooms
 ...                     Booking=#booking
@@ -32,17 +27,6 @@ Add Token Cookie
     Add Cookie    name=token    value=${token_value}    domain=${BOOKING_DOMAIN}
     Reload Page
 
-Click Let Me Hack Button
-    Click Button    Let me hack!
-
 New Web Browser
-    [Arguments]    ${add_banner_cookie}=${TRUE}
+    Log    Opening url: ${BOOKING_URL} with browser: ${BROWSER}.     CONSOLE
     Open Browser    url=${BOOKING_URL}    browser=${BROWSER}
-    IF    ${add_banner_cookie}
-        Add Cookie    &{BANNER_COOKIE}
-        Reload Page
-    END
-
-Verify Banner Cookie
-    ${cookies}    Get Cookies
-    Should Contain    ${cookies}    ${BANNER_COOKIE}[name]=${BANNER_COOKIE}[value]

@@ -9,7 +9,7 @@ Resource            Resources/UI/Common/Navigation.resource
 
 Suite Setup         Suite Setup Keywords
 Suite Teardown      Suite Teardown Keywords
-Test Setup          New Web Browser    add_banner_cookie=${FALSE}
+Test Setup          Test Setup With Token Cookie
 Test Teardown       Close Browser
 
 Test Tags           ui-api    url-navigation    admin
@@ -21,26 +21,23 @@ ${UI_TEST_ALIAS}    ui-test-alias
 
 *** Test Cases ***
 Admin URL Navigation Test
+    [Setup]    New Web Browser
     Navigate To "Admin" Login Page
     Wait For Login Header To Load
 
 Room URL Navigation Test
-    [Setup]    Test Setup With Token Cookie
     Navigate To Admin "Rooms" By URL
     Verify Room Header Row Columns
 
 Report URL Navigation Test
-    [Setup]    Test Setup With Token Cookie
     Navigate To Admin "Report" By URL
     Wait For Report Calendar To Be Visible
 
 Branding URL Navigation Test
-    [Setup]    Test Setup With Token Cookie
     Navigate To Admin "Branding" By URL
     Wait For Branding Form To Be Visible
 
 Message URL Navigation Test
-    [Setup]    Test Setup With Token Cookie
     Navigate To Admin "Messages" By URL
     Wait For Messages Container To Be Visible
 
@@ -54,7 +51,6 @@ Suite Teardown Keywords
     Close All Browsers
 
 Test Setup With Token Cookie
-    ${response}    Post On Session To Authentication Endpoint    ${UI_TEST_ALIAS}    &{ADMIN_CREDENTIALS}
-    ${token_cookie}    Get Token Cookie From Response    ${response}
+    ${token_cookie}    Get Token From Authentication Endpoint    ${UI_TEST_ALIAS}    &{ADMIN_CREDENTIALS}
     New Web Browser
     Add Token Cookie    ${token_cookie}

@@ -1,5 +1,4 @@
 *** Settings ***
-Library     String
 Resource    Resources/Common/Selenium.resource
 
 

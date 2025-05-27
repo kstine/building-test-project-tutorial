@@ -1,8 +1,8 @@
 *** Settings ***
 Documentation       Example test file.
 
-Resource            Resources/UI/Admin/Login.resource
 Resource            Resources/UI/Admin/AdminNavbar.resource
+Resource            Resources/UI/Admin/Login.resource
 Resource            Resources/UI/Common/Navigation.resource
 Resource            Resources/UI/Customer/CustomerNavbar.resource
 

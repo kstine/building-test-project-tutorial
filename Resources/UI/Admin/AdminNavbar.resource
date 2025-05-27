@@ -31,14 +31,8 @@ Click Logout Admin Navbar Link
     Click Element    ${logout_link}
     Log    Wait for Front Page To Appear
 
-Click Notifications Navbar Link
-    VAR    ${notifications_link}    css=a.nav-link[href="${RB_URL_EXT.ADMIN}/${RB_URL_EXT.Messages}"]
-    Wait Until Element Is Visible    ${notifications_link}
-    Click Element    ${notifications_link}
-
 Wait For Admin Location
-    Wait Until Location Is
-    ...    ${BOOKING_URL}/${RB_URL_EXT.ADMIN}
+    Wait Until Location Is    ${BOOKING_URL}/${RB_URL_EXT.ADMIN}
 
 Wait For Booking Management To Load
     Wait Until Location Contains    ${BOOKING_URL}/${RB_ADMIN_URL_EXT.Rooms}
@@ -49,4 +43,4 @@ Wait For "${link_text}" Admin Location
     Wait Until Location Is    ${BOOKING_URL}/${href}
 
 Wait For "${link_text}" Location
-    Wait Until Location Is    expected=${BOOKING_URL}/${RB_ADMIN_URL_EXT}[${link_text}]
+    Wait Until Location Is    ${BOOKING_URL}/${RB_ADMIN_URL_EXT}[${link_text}]
