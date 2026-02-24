@@ -19,7 +19,7 @@ Create RB Session
         IF    $url is None
             VAR    ${url}    ${BOOKING_URL}
         END
-        Create Session    alias=${alias}    url=${url}    headers=${headers}   disable_warnings=${TRUE}
+        Create Session    alias=${alias}    url=${url}    headers=${headers}    disable_warnings=${TRUE}
     END
 
 Update RB Session

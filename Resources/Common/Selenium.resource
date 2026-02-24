@@ -28,5 +28,5 @@ Add Token Cookie
     Reload Page
 
 New Web Browser
-    Log    Opening url: ${BOOKING_URL} with browser: ${BROWSER}.     CONSOLE
+    Log    Opening url: ${BOOKING_URL} with browser: ${BROWSER}.    CONSOLE
     Open Browser    url=${BOOKING_URL}    browser=${BROWSER}
